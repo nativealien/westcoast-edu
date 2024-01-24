@@ -3,6 +3,8 @@ import { get, update } from "./client.js"
 const initLogin = async () => {
     const users = await get('users')
 
+    signupBtn()
+
     const loginForm = document.getElementById('login-form')
     loginForm.addEventListener('submit', async function(e){
         e.preventDefault()
@@ -30,6 +32,12 @@ const initLogin = async () => {
                 location.href = '../index.html'
             }else { console.log('INGEN TRÄFF!'); }
         });
+    })
+}
+
+const signupBtn = () => {
+    const signBtn = document.getElementById('sign-btn').addEventListener('click', () => {
+        location.href = 'signup.html'
     })
 }
 
