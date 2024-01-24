@@ -1,0 +1,85 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "course": "Javascript",
+      "type": "Distans",
+      "weeks": "10",
+      "start": "12-01-2024",
+      "image": "python.jpg",
+      "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
+      "cost": "15000",
+      "rating": "1"
+    },
+    {
+      "id": "2",
+      "course": "Python",
+      "type": "Distans",
+      "weeks": "10",
+      "start": "12-02-2024",
+      "image": "python.jpg",
+      "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
+      "cost": "15000",
+      "rating": "2"
+    },
+    {
+      "id": "3",
+      "course": "Java",
+      "type": "Plats",
+      "weeks": "10",
+      "start": "12-03-2024",
+      "image": "python.jpg",
+      "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
+      "cost": "15000",
+      "rating": "3"
+    },
+    {
+      "id": "4",
+      "course": "Rust",
+      "type": "Plats",
+      "weeks": "10",
+      "start": "12-04-2024",
+      "image": "python.jpg",
+      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
+      "cost": "15000",
+      "rating": "4"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Adam",
+      "lastname": "Svensson",
+      "street": "Krogvägen 41",
+      "city": "Lund",
+      "zip": "37782",
+      "phone": "0733772277",
+      "email": "admin@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "type": "user",
+      "name": "Hanna",
+      "lastname": "Jacobsen",
+      "street": "lavägen 1",
+      "city": "Landskrona",
+      "zip": "45578",
+      "phone": "0733444444",
+      "email": "user@gmail.com",
+      "password": "123",
+      "courses": [
+        "1",
+        "3"
+      ]
+    }
+  ],
+  "logged": [
+    {
+      "id": "1",
+      "email": null,
+      "userId": null,
+      "type": null
+    }
+  ]
+}
