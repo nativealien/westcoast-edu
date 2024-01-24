@@ -1,8 +1,11 @@
 import { get, update } from "./client.js";
+import { handleForm } from "./data.js";
+import { addCourseCard } from './dom.js'
 
 const initProfile = async (logged) => {
 
     const user = await get(`users/${logged.userId}`)
+    const courses = await get('courses')
     
     for(let [key, value] of Object.entries(user)) {
 
@@ -12,24 +15,27 @@ const initProfile = async (logged) => {
         }
     }
     console.log(user.id);
-    updateUser(user.id)
+    updateUser(user)
+    addCourses(user, courses)
     loggOut()
 }
 
-const updateUser = async (id) => {
+const addCourses = async (user, courses) => {
+    user.courses.forEach( id => {
+        console.log(courses[id-1]);
+        addCourseCard(courses[id-1])
+        
+    })
+}
+
+const updateUser = async (user) => {
     document.getElementById('update-btn').addEventListener('click', async (e) => {
         e.preventDefault()
 
-        const formData = new FormData(document.getElementById('profile-form'))
-        console.log(formData);
-
-        const obj = {id: id}
-
-        for(const [key, value] of formData.entries()){
-            obj[key] = value;
-        }
-
-        await update(`users/${id}`, obj)
+        const data = handleForm('profile-form', user.id)
+        data['type'] = user.type
+        data['courses'] = user.courses
+        await update(`users/${user.id}`, data)
     })
 }
 

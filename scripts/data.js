@@ -7,7 +7,12 @@ const handleForm = (formId, objId) => {
     console.log(form, formData);
     
 
-    const newObj = { id: objId }
+    const newObj = { }
+
+    if(objId !== ''){
+        newObj['id'] = objId
+    }
+
     let check = true
     for(const [key, value] of formData.entries()){
         if(value === ''){

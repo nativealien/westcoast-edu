@@ -6,13 +6,17 @@ const initSignup = async () => {
     const newId = users.length + 1
 
     let data;
-    document.getElementById('signup-btn').addEventListener('click', e => {
+    document.getElementById('signup-btn').addEventListener('click', async e => {
         e.preventDefault();
 
         data = handleForm('signup-form', newId)
+        if( data !== null ){
+            data['type'] = 'user'
+            data['courses'] = []
+            await add('users', data)
 
-        console.log(data);
-        
+            location.href = 'login.html'
+        }
     } )
 }
 
