@@ -5,6 +5,7 @@ import { initCourse } from "./courses.js";
 import { initLogin } from "./login.js";
 import { initProfile } from "./profile.js";
 import { initAddCourse } from "./courseAdd.js";
+import { initSignup } from "./signup.js";
 import { get } from "./client.js";
 
 const loc = location.pathname.split('/')
@@ -38,6 +39,7 @@ const initApp = async () => {
             initProfile(logged)
             break
         case('signup.html'):
+            initSignup()
             break
     }
 }

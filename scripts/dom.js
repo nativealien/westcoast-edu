@@ -75,4 +75,4 @@ const div = (elem) => {
     return div}
 
 
-export { addLogin, addCourseCard, addAdminBtn }
+export { addLogin, addCourseCard, addAdminBtn, div }
