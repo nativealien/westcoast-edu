@@ -17,7 +17,7 @@ const addLogin = (logged, path) => {
     container.appendChild(liTag)
 }
 
-const addHomeCard = (course) => {
+const addCourseCard = (course) => {
     const container = document.getElementById('main-container')
 
     const locArr = location.pathname.split('/')
@@ -59,13 +59,10 @@ const addHomeCard = (course) => {
     container.appendChild(cardA)
 }
 
-const addCourseCard = (course) => {
-    const container = document.getElementById('main-container')
-}
 
 const div = (elem) => { 
     const div = document.createElement(elem)
     return div}
 
 
-export { addLogin, addHomeCard }
+export { addLogin, addCourseCard }

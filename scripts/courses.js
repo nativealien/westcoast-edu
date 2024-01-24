@@ -1,13 +1,12 @@
 import { get } from "./client.js"
-import { addHomeCard } from "./dom.js";
+import { addCourseCard } from "./dom.js";
 
-const initCourse = async () => {
+const initCourse = async (logged) => {
     const courses = await get('courses')
 
     courses.forEach( course => {
-        addHomeCard(course)
+        addCourseCard(course)
     });
-    
 }
 
 export {initCourse}

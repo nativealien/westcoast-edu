@@ -22,7 +22,7 @@ const initApp = async () => {
             initHome()
             break
         case('courses.html'):
-            initCourse()
+            initCourse(logged)
             break
         case('course-info.html'):
             initInfo(logged)
