@@ -1,4 +1,5 @@
-import { get, update } from "./client.js";
+import { get, update, del } from "./client.js";
+import { handleForm } from "./data.js";
 
 const initInfo = async (logged) => {
     const id = location.search.split('=')[1]
@@ -15,39 +16,58 @@ const initInfo = async (logged) => {
             }
         }
     }
-    console.log(logged.type);
-    
     if(logged.type === null){
-        document.getElementById('admin-btn').style.display = 'none'
+        document.getElementById('update-btn').style.display = 'none'
+        document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('user-btn').style.display = 'none'
     }else if (logged.type === 'admin'){
         document.getElementById('login-btn').style.display = 'none'
         document.getElementById('user-btn').style.display = 'none'
-        updateAdmin(id)
+        updateCourse(id)
+        deleteCourse(id)
     }else{
-        document.getElementById('admin-btn').style.display = 'none'
+        document.getElementById('update-btn').style.display = 'none'
+        document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('login-btn').style.display = 'none'
+        bookCourse(id, logged.userId)
     }
 
     console.log(course);
     
 }
 
-const updateAdmin = async (id) => {
-    document.getElementById('admin-btn').addEventListener('click', async () => {
-        const formData = new FormData(document.getElementById('info-form'))
-        console.log(formData);
+const updateCourse = async (id) => {
+    document.getElementById('update-btn').addEventListener('click', async () => {
+      
+        const data = handleForm('info-form', id)
+        await update(`courses/${id}`, data)
+        location.href = 'courses.html'
+    })
+}
 
-        const obj = {}
+const deleteCourse = async (id) => {
+    document.getElementById('delete-btn').addEventListener('click', async () => {
+      
+        const data = handleForm('info-form', id)
+        await del(`courses/${id}`)
+        location.href = 'courses.html'
+    })
+}
 
-        for(const [key, value] of formData.entries()){
-            obj[key] = value;
-        }
-        console.log(obj);
-
-        await update(`courses/${id}`, obj)
+const bookCourse = async (id, loggId) => {
+    document.getElementById('user-btn').addEventListener('click', async () => {
         
-        
+        const user = await get('users/' + loggId)
+
+        user.courses.push(id)
+
+        const coursesSet = new Set(user.courses)
+        const courses = [...coursesSet]
+
+        user.courses = courses
+
+        await update('users/' + loggId, user)
+
     })
 }
 
