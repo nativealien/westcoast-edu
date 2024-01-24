@@ -38,6 +38,39 @@ const update = async (endPoint, data) => {
     }
   }
 
+const add = async (endPoint, data) => {
+    console.log(`${api}${endPoint}`, data);
+    
+    try {
+      const response = await fetch(`${api}${endPoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-export {get, update}
+      if (response.ok) {
+        const result = await response.json();
+        return result;
+      } else {
+        throw new Error(`Fel: ${response.status} ${response.statusText}`);
+      }
+    } catch (error) {
+      throw new Error(`Fel: ${error}`);
+    }
+  }
+
+const del = async (endPoint) => {
+    try {
+      const response = await fetch(`${api}${endPoint}`, {
+        method: 'DELETE',
+      });
+    } catch (error) {
+      throw new Error(`Fel: ${error}`);
+    }
+  }
+
+
+export {get, update, add, del}
 
