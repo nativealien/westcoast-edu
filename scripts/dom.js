@@ -22,17 +22,11 @@ const addCourseCard = (course) => {
 
     const locArr = location.pathname.split('/')
     const loc = locArr[locArr.length - 1]
-
-    console.log(loc);
     
     const cardA = div('a')
     if(loc === 'index.html'){
-        console.log(true);
-        
         cardA.href = './pages/course-info.html?id=' + course.id
     } else {
-        console.log(false);
-        
         cardA.href = './course-info.html?id=' + course.id
     }
 
@@ -44,8 +38,6 @@ const addCourseCard = (course) => {
 
     const cardP1 = div('p')
     cardP1.textContent = course.description
-    console.log(course.description);
-    
 
     const cardP2 = div('p')
     cardP2.textContent = course.type
@@ -59,10 +51,28 @@ const addCourseCard = (course) => {
     container.appendChild(cardA)
 }
 
+const addAdminBtn = (logged) => {
+    console.log(logged);
+    
+    if(logged.type === 'admin'){
+        const container = document.getElementById('main-container');
+
+        const adminBtn = document.createElement('button');
+        adminBtn.id = 'add-btn'
+        adminBtn.textContent = 'Lägg Till Kurs'
+
+        adminBtn.addEventListener('click', () => {
+            location.href = 'course-add.html'
+        })
+
+        container.appendChild(adminBtn)
+    }
+}
+
 
 const div = (elem) => { 
     const div = document.createElement(elem)
     return div}
 
 
-export { addLogin, addCourseCard }
+export { addLogin, addCourseCard, addAdminBtn }

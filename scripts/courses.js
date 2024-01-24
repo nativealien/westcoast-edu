@@ -1,5 +1,5 @@
 import { get } from "./client.js"
-import { addCourseCard } from "./dom.js";
+import { addCourseCard, addAdminBtn } from "./dom.js";
 
 const initCourse = async (logged) => {
     const courses = await get('courses')
@@ -7,6 +7,11 @@ const initCourse = async (logged) => {
     courses.forEach( course => {
         addCourseCard(course)
     });
+    console.log(logged);
+    
+    if(logged.type === 'admin'){
+        addAdminBtn(logged)
+    }
 }
 
 export {initCourse}
