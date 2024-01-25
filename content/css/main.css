@@ -1,0 +1,27 @@
+
+
+main {
+    width: 1200px;
+    height: auto;
+
+    margin: auto;
+    padding: 10px;
+
+    background-color: burlywood;
+}
+
+.info-div {
+    height: 150px;
+    display: flex;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+    margin-right: 20px;
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
