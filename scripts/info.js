@@ -50,15 +50,6 @@ const updateCourse = async (id) => {
     })
 }
 
-const deleteCourse = async (id) => {
-    document.getElementById('delete-btn').addEventListener('click', async () => {
-      
-        const data = handleForm('info-form', id)
-        await del(`courses/${id}`)
-        location.href = 'courses.html'
-    })
-}
-
 const bookCourse = async (id, loggId, course) => {
     document.getElementById('user-btn').addEventListener('click', async () => {
         
