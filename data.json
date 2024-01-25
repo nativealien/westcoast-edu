@@ -6,10 +6,10 @@
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
+      "image": "Javascript.svg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
-      "image": "python.jpg",
       "book": []
     },
     {
@@ -18,13 +18,11 @@
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
+      "image": "python-light.svg",
       "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
-      "image": "python.jpg",
-      "book": [
-        "2"
-      ]
+      "book": []
     },
     {
       "id": "3",
@@ -32,7 +30,7 @@
       "type": "Plats",
       "days": "10",
       "start": "12-03-2024",
-      "image": "python.jpg",
+      "image": "java-light.svg",
       "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "3",
@@ -44,10 +42,58 @@
       "type": "Plats",
       "days": "10",
       "start": "12-04-2024",
-      "image": "python.jpg",
+      "image": "rust.svg",
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "4",
+      "book": []
+    },
+    {
+      "id": "5",
+      "course": "Solidity",
+      "type": "Plats",
+      "days": "10",
+      "start": "12-04-2024",
+      "image": "solidity.svg",
+      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
+      "cost": "15000",
+      "rating": "5",
+      "book": []
+    },
+    {
+      "id": "6",
+      "course": "Typescript",
+      "type": "Plats",
+      "days": "10",
+      "start": "12-04-2024",
+      "image": "typescript.svg",
+      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
+      "cost": "15000",
+      "rating": "6",
+      "book": []
+    },
+    {
+      "id": "7",
+      "course": "React",
+      "type": "Plats",
+      "days": "10",
+      "start": "12-04-2024",
+      "image": "react-dark.svg",
+      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
+      "cost": "15000",
+      "rating": "7",
+      "book": []
+    },
+    {
+      "id": "8",
+      "course": "NodeJS",
+      "type": "Plats",
+      "days": "10",
+      "start": "12-04-2024",
+      "image": "nodejs-light.svg",
+      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
+      "cost": "15000",
+      "rating": "8",
       "book": []
     }
   ],
@@ -76,9 +122,7 @@
       "email": "user@gmail.com",
       "password": "123",
       "type": "user",
-      "courses": [
-        "2"
-      ]
+      "courses": []
     },
     {
       "id": "3",
@@ -110,19 +154,7 @@
   "logged": [
     {
       "id": "1",
-      "user": {
-        "id": "1",
-        "name": "Adam3",
-        "lastname": "Svensson",
-        "street": "Krogvägen 41",
-        "city": "Lund",
-        "zip": "37782",
-        "phone": "0733772277",
-        "email": "admin@gmail.com",
-        "password": "123",
-        "type": "admin",
-        "courses": []
-      }
+      "user": null
     }
   ]
 }

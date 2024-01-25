@@ -17,3 +17,7 @@
     #home-card:hover{
         background-color: coral;
     }
+    #home-card > img {
+        width: 90px;
+        height: 90px;
+    }

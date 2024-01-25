@@ -22,12 +22,15 @@ const addCourseCard = (course) => {
 
     const locArr = location.pathname.split('/')
     const loc = locArr[locArr.length - 1]
-    
+
+    const image = div('img')
     const cardA = div('a')
     if(loc === 'index.html'){
         cardA.href = './pages/course-info.html?id=' + course.id
+        image.src = './content/images/' + course.image
     } else {
         cardA.href = './course-info.html?id=' + course.id
+        image.src = '../content/images/' + course.image
     }
 
     const cardDiv = div('div')
@@ -42,6 +45,7 @@ const addCourseCard = (course) => {
     const cardP2 = div('p')
     cardP2.textContent = course.type
 
+    cardDiv.appendChild(image)
     cardDiv.appendChild(cardH2)
     cardDiv.appendChild(cardP1)
     cardDiv.appendChild(cardP2)
