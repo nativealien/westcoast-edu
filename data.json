@@ -141,17 +141,21 @@
     {
       "id": "1",
       "user": {
-        "id": "1",
-        "name": "Adam3",
-        "lastname": "Svensson",
-        "street": "Krogvägen 41",
-        "city": "Lund",
-        "zip": "37782",
-        "phone": "0733772277",
-        "email": "admin@gmail.com",
+        "id": "2",
+        "name": "Hanna",
+        "lastname": "Jacobsen",
+        "street": "lavägen 1",
+        "city": "Landskrona",
+        "zip": "45578",
+        "phone": "0733444444",
+        "email": "user@gmail.com",
         "password": "123",
-        "type": "admin",
-        "courses": []
+        "type": "user",
+        "courses": [
+          "1",
+          "5",
+          "2"
+        ]
       }
     }
   ]
