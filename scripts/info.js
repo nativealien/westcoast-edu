@@ -6,11 +6,6 @@ const initInfo = async (logged) => {
 
     const course = await get(`courses/` + id)
 
-    // console.log(logged.user, id);
-    // console.log(course);
-    
-    
-
     for(let [key, value] of Object.entries(course)) {
 
         const input = document.getElementById(key)
@@ -31,12 +26,13 @@ const initInfo = async (logged) => {
         document.getElementById('user-btn').style.display = 'none'
         updateCourse(id)
         deleteCourse(id)
-        listBooking(course)
+        listBooking(course, logged)
     }else{
         document.getElementById('update-btn').style.display = 'none'
         document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('login-btn').style.display = 'none'
         bookCourse(id, logged.user.id, course)
+        listBooking(course, logged)
     }
 }
 
@@ -89,14 +85,27 @@ const bookCourse = async (id, loggId, course) => {
     })
 }
 
-const listBooking = async (course) => {
+const listBooking = async (course, logged) => {
     const users = await get('users')
-    console.log(users);
+    console.log(course.id, logged);
 
-    course.book.forEach( id => {
-        console.log(users[id]);
+    if(logged.user.type === 'user'){
+        logged.user.courses.forEach(id => {
+            if(id === course.id){
+                console.log('Du har bokat denna kursen!');
+            }
+        });
+    }else if (logged.user.type === 'admin'){
+        course.book.forEach(id => {
+            console.log(`${users[id-1].name} har bokat kursen`);
+            
+        })
+    }
+
+    // course.book.forEach( id => {
+    //     console.log(users[id]);
         
-    });
+    // });
     
 }
 
