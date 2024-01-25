@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../style.css">
     <script type="module" src="../scripts/app.js" defer></script>
 
-    <title>Document</title>
+    <title>Westcoast Education</title>
 </head>
 <body>
     <header>
@@ -31,8 +32,10 @@
         <form action="submit" id="login-form">
             <input type="email" name="email" id="email" placeholder="E-post">
             <input type="password" name="password" id="password" placeholder="Lösenord">
-            <input type="submit" id="form-btn" value="Logga In">
-            <input type="button" id="sign-btn" value="Bli Medlem">
+            <div class="form-btns">
+                <input type="submit" id="form-btn" value="Logga In">
+                <input type="button" id="sign-btn" value="Bli Medlem">
+            </div>
         </form>
     </main>
 </body>

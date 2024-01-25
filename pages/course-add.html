@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../style.css">
     <script type="module" src="../scripts/app.js" defer></script>
 
-    <title>Document</title>
+    <title>Westcoast Education - Kurs Info</title>
 </head>
 <body>
     <header>
@@ -31,13 +32,15 @@
         <form action="submit" id="info-form">
             <input type="text" id="course" name="course" placeholder="Kurs namn">
             <input type="text" id="type" name="type" placeholder="Plats el distans">
-            <input type="text" id="weeks" name="weeks" placeholder="Antal veckor">
+            <input type="text" id="days" name="days" placeholder="Antal dagar">
             <input type="text" id="start" name="start" placeholder="Kurs start">
             <input type="text" id="image" name="image" placeholder="Lägg till bild">
             <input type="text" id="description" name="description" placeholder="Beskriv kursen">
             <input type="text" id="cost" name="cost" placeholder="Pris för kursen">
             <input type="text" id="rating" name="rating" placeholder="Rating">
-            <input type="button" id="add-btn" value="Lägg till kurs">
+            <div class="form-btns">
+                <input type="button" id="add-btn" value="Lägg till kurs">
+            </div>
         </form>
     </main>
 </body>

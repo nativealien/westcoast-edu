@@ -1,0 +1,15 @@
+
+
+#main-container{
+    padding: 20px;}
+
+    a {
+        margin: 10px;
+    }
+
+    #home-card {
+        padding: 10px;
+
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color: black; }
