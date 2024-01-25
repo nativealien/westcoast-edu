@@ -4,33 +4,33 @@
       "id": "1",
       "course": "Javascript",
       "type": "Distans",
-      "days": "28",
+      "days": "10",
       "start": "12-02-2024",
-      "image": "python.jpg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
-      "book": [
-        "2"
-      ]
+      "image": "python.jpg",
+      "book": []
     },
     {
       "id": "2",
       "course": "Python",
       "type": "Distans",
-      "days": "28",
+      "days": "10",
       "start": "12-02-2024",
-      "image": "python.jpg",
       "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
-      "book": []
+      "image": "python.jpg",
+      "book": [
+        "2"
+      ]
     },
     {
       "id": "3",
       "course": "Java",
       "type": "Plats",
-      "days": "28",
+      "days": "10",
       "start": "12-03-2024",
       "image": "python.jpg",
       "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
@@ -42,7 +42,7 @@
       "id": "4",
       "course": "Rust",
       "type": "Plats",
-      "days": "28",
+      "days": "10",
       "start": "12-04-2024",
       "image": "python.jpg",
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
@@ -77,7 +77,7 @@
       "password": "123",
       "type": "user",
       "courses": [
-        "1"
+        "2"
       ]
     },
     {

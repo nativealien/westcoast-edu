@@ -14,3 +14,6 @@
         text-decoration: none;
         background-color: blanchedalmond;
         color: black; }
+    #home-card:hover{
+        background-color: coral;
+    }

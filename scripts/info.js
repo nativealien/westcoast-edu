@@ -7,7 +7,6 @@ const initInfo = async (logged) => {
     const course = await get(`courses/` + id)
 
     for(let [key, value] of Object.entries(course)) {
-
         const input = document.getElementById(key)
         if(input !== null){
             input.value = value
@@ -16,23 +15,25 @@ const initInfo = async (logged) => {
             }
         }
     }
-    if(logged.user === null){
-        document.getElementById('update-btn').style.display = 'none'
-        // document.getElementById('delete-btn').style.display = 'none'
-        document.getElementById('user-btn').style.display = 'none'
-        loginBtn()
-    }else if (logged.user.type === 'admin'){
-        document.getElementById('login-btn').style.display = 'none'
-        document.getElementById('user-btn').style.display = 'none'
-        updateCourse(id)
-        listBooking(course, logged)
-    }else{
-        document.getElementById('update-btn').style.display = 'none'
-        // document.getElementById('delete-btn').style.display = 'none'
-        document.getElementById('login-btn').style.display = 'none'
-        bookCourse(id, logged.user.id, course)
-        listBooking(course, logged)
-    }
+
+    const type = logged.user === null ? false : logged.user.type
+    if(type){
+        const button = document.getElementById('login-btn')
+        button.id = type + '-btn'
+        if(type === 'admin'){
+            button.value = 'Uppdatera'
+            updateCourse(id, course)
+        }else { 
+            if(checkBook(course, logged)){
+                button.value = 'Du har bokat denna kursen'
+                button.style.backgroundColor = 'green'
+                button.style.cursor = 'arrow'
+            }else {
+                bookCourse(id, logged.user.id, course) 
+                button.value = 'Boka'
+            }
+        }
+    }else { loginBtn() }
 }
 
 const loginBtn = () => {
@@ -41,10 +42,12 @@ const loginBtn = () => {
     })
 }
 
-const updateCourse = async (id) => {
-    document.getElementById('update-btn').addEventListener('click', async () => {
+const updateCourse = async (id, course) => {
+    document.getElementById('admin-btn').addEventListener('click', async () => {
       
         const data = handleForm('info-form', id)
+        data['image'] = course.image
+        data['book'] = course.book
         await update(`courses/${id}`, data)
         location.href = 'courses.html'
     })
@@ -58,13 +61,8 @@ const bookCourse = async (id, loggId, course) => {
         user.courses.push(id)
         course.book.push(loggId)
 
-        const bookSet = new Set(course.book)
-        const book = [...bookSet]
-        course.book = book
- 
-        const coursesSet = new Set(user.courses)
-        const courses = [...coursesSet]
-        user.courses = courses
+        course.book = checkDubbles(course.book)
+        user.courses = checkDubbles(user.courses)
 
         await update('users/' + loggId, user)
         await update('logged/1', { 
@@ -72,7 +70,26 @@ const bookCourse = async (id, loggId, course) => {
             user: user})
         await update('courses/' + id, course)
 
+        location.href = 'profile.html'
     })
+}
+
+const checkDubbles = (array) => {
+    const set = new Set(array)
+    return [...set]
+}
+
+const checkBook = (course, logged) => {
+    console.log(course, logged);
+    let check = false
+    logged.user.courses.forEach( id => {
+        if(id === course.id){ check = true }
+    })
+    return check
+    
+    // logged.courses.forEach( id => {
+    //     if(id === course.id){ return true; }
+    // })
 }
 
 const listBooking = async (course, logged) => {
@@ -91,12 +108,6 @@ const listBooking = async (course, logged) => {
             
         })
     }
-
-    // course.book.forEach( id => {
-    //     console.log(users[id]);
-        
-    // });
-    
 }
 
 export {initInfo}

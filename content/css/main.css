@@ -2,12 +2,12 @@
 
 main {
     width: 1200px;
-    height: auto;
+    height: 100vh;
 
     margin: auto;
     padding: 10px;
 
-    background-color: burlywood; }
+    background-color: rgb(230, 208, 179); }
 
     h2 {
         padding: 0;
@@ -32,6 +32,9 @@ main {
             display: flex;
         }
         .form-btns > input {
-            cursor: pointer;
-            background-color: grey;
+            cursor:pointer;
+            background-color: rgb(207, 146, 15);
+        }
+        .form-btns > input:hover{
+            background-color: bisque;
         }

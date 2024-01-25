@@ -2,7 +2,6 @@ import { get, add } from "./client.js";
 import { handleForm } from "./data.js";
 
 const initAddCourse = async () => {
-    console.log('initAdd');
 
     const courses = await get('courses')
     const newId = String(courses.length + 1)
