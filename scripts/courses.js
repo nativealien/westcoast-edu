@@ -7,9 +7,9 @@ const initCourse = async (logged) => {
     courses.forEach( course => {
         addCourseCard(course)
     });
-    console.log(logged);
+    console.log(logged.user.type);
     
-    if(logged.type === 'admin'){
+    if(logged.user.type === 'admin'){
         addAdminBtn(logged)
     }
 }

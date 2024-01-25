@@ -3,7 +3,7 @@ import { handleForm } from "./data.js"
 
 const initSignup = async () => {
     const users = await get('users')
-    const newId = users.length + 1
+    const newId = String(users.length + 1)
 
     let data;
     document.getElementById('signup-btn').addEventListener('click', async e => {

@@ -21,9 +21,7 @@ const loginBtn = (users) => {
                                 console.log(user.email, user.id, user.type);
                                 await update('logged/1', { 
                                                     id: "1", 
-                                                    email: user.email,
-                                                    userId: user.id,
-                                                    type: user.type})
+                                                    user: user})
                                 location.href = '../index.html'
                             }else { console.log('INGEN TRÄFF!'); }
                         });

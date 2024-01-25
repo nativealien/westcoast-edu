@@ -12,6 +12,7 @@ const initAddCourse = async () => {
         e.preventDefault()
 
         const data = handleForm('info-form', newId)
+        data['book'] = []
 
         await add('courses', data)
         

@@ -5,12 +5,12 @@ const addLogin = (logged, path) => {
     const aTag = div('a')
     const liTag = div('li')
 
-    if(logged.email === null){
+    if(logged.user === null){
         aTag.textContent = 'Logga In'
         aTag.href = path === 'index.html' ? './pages/login.html' : './login.html'
         liTag.appendChild(aTag)
     }else{
-        aTag.textContent = logged.email
+        aTag.textContent = logged.user.email
         aTag.href = path === 'index.html' ? './pages/profile.html' : './profile.html'
         liTag.appendChild(aTag)
     }
@@ -54,7 +54,7 @@ const addCourseCard = (course) => {
 const addAdminBtn = (logged) => {
     console.log(logged);
     
-    if(logged.type === 'admin'){
+    if(logged.user.type === 'admin'){
         const container = document.getElementById('main-container');
 
         const adminBtn = document.createElement('button');
