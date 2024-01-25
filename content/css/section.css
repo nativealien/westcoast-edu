@@ -1,16 +1,14 @@
 
 
 #main-container{
-    padding: 20px; }
+    padding: 20px;}
 
-    a{
+    a {
         margin: 10px;
     }
 
     #home-card {
         padding: 10px;
-
-        display: flex;
 
         text-decoration: none;
         background-color: blanchedalmond;

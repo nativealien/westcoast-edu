@@ -18,18 +18,17 @@ const initInfo = async (logged) => {
     }
     if(logged.user === null){
         document.getElementById('update-btn').style.display = 'none'
-        document.getElementById('delete-btn').style.display = 'none'
+        // document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('user-btn').style.display = 'none'
         loginBtn()
     }else if (logged.user.type === 'admin'){
         document.getElementById('login-btn').style.display = 'none'
         document.getElementById('user-btn').style.display = 'none'
         updateCourse(id)
-        deleteCourse(id)
         listBooking(course, logged)
     }else{
         document.getElementById('update-btn').style.display = 'none'
-        document.getElementById('delete-btn').style.display = 'none'
+        // document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('login-btn').style.display = 'none'
         bookCourse(id, logged.user.id, course)
         listBooking(course, logged)

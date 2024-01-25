@@ -7,21 +7,31 @@ main {
     margin: auto;
     padding: 10px;
 
-    background-color: burlywood;
-}
+    background-color: burlywood; }
 
-.info-div {
-    height: 150px;
-    display: flex;
-}
+    h2 {
+        padding: 0;
+        margin: 0;
+        margin-right: 20px;
+        font-size: 3rem; }
 
-h2 {
-    padding: 0;
-    margin: 0;
-    margin-right: 20px;
-    font-size: 3rem;
-}
+    p {
+        font-size: 1.5rem; }
 
-p {
-    font-size: 1.5rem;
-}
+    form{
+        width: 50%; }
+
+        input {
+            border: 2px solid rgb(214, 154, 42);
+            font-size: 1.4rem;
+
+            background-color: blanchedalmond;
+        }
+
+        .form-btns {
+            display: flex;
+        }
+        .form-btns > input {
+            cursor: pointer;
+            background-color: grey;
+        }

@@ -2,23 +2,12 @@
   "courses": [
     {
       "id": "1",
-      "course": "Javascript2",
+      "course": "Javascript",
       "type": "Distans",
-      "weeks": "10",
+      "days": "28",
       "start": "12-02-2024",
       "image": "python.jpg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
-      "cost": "15000",
-      "rating": "2"
-    },
-    {
-      "id": "2",
-      "course": "Python",
-      "type": "Distans",
-      "weeks": "10",
-      "start": "12-02-2024",
-      "image": "python.jpg",
-      "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
       "book": [
@@ -26,10 +15,22 @@
       ]
     },
     {
+      "id": "2",
+      "course": "Python",
+      "type": "Distans",
+      "days": "28",
+      "start": "12-02-2024",
+      "image": "python.jpg",
+      "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
+      "cost": "15000",
+      "rating": "2",
+      "book": []
+    },
+    {
       "id": "3",
       "course": "Java",
       "type": "Plats",
-      "weeks": "10",
+      "days": "28",
       "start": "12-03-2024",
       "image": "python.jpg",
       "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
@@ -41,45 +42,19 @@
       "id": "4",
       "course": "Rust",
       "type": "Plats",
-      "weeks": "10",
+      "days": "28",
       "start": "12-04-2024",
       "image": "python.jpg",
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "4",
       "book": []
-    },
-    {
-      "id": "5",
-      "course": "SQL2",
-      "type": "Plats",
-      "weeks": "10",
-      "start": "13-08-2024",
-      "image": "python.jpg",
-      "description": "Kul! SOM FAN!",
-      "cost": "10000",
-      "rating": "2",
-      "book": [
-        "2"
-      ]
-    },
-    {
-      "id": "6",
-      "course": "Matte",
-      "type": "Plats",
-      "weeks": "10",
-      "start": "13-06-2024",
-      "image": "python.jpg",
-      "description": "Kul med matte",
-      "cost": "13000",
-      "rating": "2",
-      "book": []
     }
   ],
   "users": [
     {
       "id": "1",
-      "name": "Adam",
+      "name": "Adam3",
       "lastname": "Svensson",
       "street": "Krogvägen 41",
       "city": "Lund",
@@ -102,9 +77,7 @@
       "password": "123",
       "type": "user",
       "courses": [
-        "1",
-        "5",
-        "2"
+        "1"
       ]
     },
     {
@@ -137,7 +110,19 @@
   "logged": [
     {
       "id": "1",
-      "user": null
+      "user": {
+        "id": "1",
+        "name": "Adam3",
+        "lastname": "Svensson",
+        "street": "Krogvägen 41",
+        "city": "Lund",
+        "zip": "37782",
+        "phone": "0733772277",
+        "email": "admin@gmail.com",
+        "password": "123",
+        "type": "admin",
+        "courses": []
+      }
     }
   ]
 }

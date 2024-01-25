@@ -47,30 +47,6 @@
       "cost": "15000",
       "rating": "4",
       "book": []
-    },
-    {
-      "id": "5",
-      "course": "SQL2",
-      "type": "Plats",
-      "weeks": "10",
-      "start": "13-08-2024",
-      "image": "python.jpg",
-      "description": "Kul! SOM FAN!",
-      "cost": "10000",
-      "rating": "2",
-      "book": []
-    },
-    {
-      "id": "6",
-      "course": "Matte",
-      "type": "Plats",
-      "weeks": "10",
-      "start": "13-06-2024",
-      "image": "python.jpg",
-      "description": "Kul med matte",
-      "cost": "13000",
-      "rating": "2",
-      "book": []
     }
   ],
   "users": [
