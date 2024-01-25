@@ -6,34 +6,45 @@ const initInfo = async (logged) => {
 
     const course = await get(`courses/${id}`)
 
+    console.log(logged.user, id);
+    
+
     for(let [key, value] of Object.entries(course)) {
 
         const input = document.getElementById(key)
         if(input !== null){
             input.value = value
-            if(logged.type !== 'admin'){
+            if(logged.user === null || logged.user.type !== 'admin'){
                 input.readOnly = true
             }
         }
     }
-    if(logged.type === null){
+    if(logged.user === null){
         document.getElementById('update-btn').style.display = 'none'
         document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('user-btn').style.display = 'none'
-    }else if (logged.type === 'admin'){
+        loginBtn()
+    }else if (logged.user.type === 'admin'){
         document.getElementById('login-btn').style.display = 'none'
         document.getElementById('user-btn').style.display = 'none'
         updateCourse(id)
         deleteCourse(id)
+        listBooking(course)
     }else{
         document.getElementById('update-btn').style.display = 'none'
         document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('login-btn').style.display = 'none'
-        bookCourse(id, logged.userId)
+        bookCourse(id, logged.user.id)
     }
 
     console.log(course);
     
+}
+
+const loginBtn = () => {
+    document.getElementById('login-btn').addEventListener('click', async () => {
+        location.href = 'login.html'
+    })
 }
 
 const updateCourse = async (id) => {
@@ -56,6 +67,7 @@ const deleteCourse = async (id) => {
 
 const bookCourse = async (id, loggId) => {
     document.getElementById('user-btn').addEventListener('click', async () => {
+        console.log('book course', id, loggId);
         
         const user = await get('users/' + loggId)
 
@@ -67,8 +79,21 @@ const bookCourse = async (id, loggId) => {
         user.courses = courses
 
         await update('users/' + loggId, user)
+        await update('logged/1', { 
+            id: "1", 
+            user: user})
 
     })
+}
+
+const listBooking = async (course) => {
+    const users = await get('users')
+    console.log(users);
+
+    // course.book.forEach( user => {
+    //     user
+    // });
+    
 }
 
 export {initInfo}

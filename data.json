@@ -9,7 +9,8 @@
       "image": "python.jpg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
-      "rating": "1"
+      "rating": "1",
+      "book": []
     },
     {
       "id": "2",
@@ -20,7 +21,8 @@
       "image": "python.jpg",
       "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
-      "rating": "2"
+      "rating": "2",
+      "book": []
     },
     {
       "id": "3",
@@ -31,7 +33,8 @@
       "image": "python.jpg",
       "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
-      "rating": "3"
+      "rating": "3",
+      "book": []
     },
     {
       "id": "4",
@@ -42,18 +45,32 @@
       "image": "python.jpg",
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
-      "rating": "4"
+      "rating": "4",
+      "book": []
     },
     {
       "id": "5",
-      "course": "SQL",
+      "course": "SQL2",
       "type": "Plats",
       "weeks": "10",
       "start": "13-08-2024",
       "image": "python.jpg",
       "description": "Kul! SOM FAN!",
       "cost": "10000",
-      "rating": "2"
+      "rating": "2",
+      "book": []
+    },
+    {
+      "id": "6",
+      "course": "Matte",
+      "type": "Plats",
+      "weeks": "10",
+      "start": "13-06-2024",
+      "image": "python.jpg",
+      "description": "Kul med matte",
+      "cost": "13000",
+      "rating": "2",
+      "book": []
     }
   ],
   "users": [
@@ -82,10 +99,7 @@
       "password": "123",
       "type": "user",
       "courses": [
-        "1",
-        "3",
-        "2",
-        "4"
+        "1"
       ]
     },
     {
@@ -100,14 +114,39 @@
       "password": "123",
       "type": "user",
       "courses": []
+    },
+    {
+      "id": "4",
+      "name": "Kalle",
+      "lastname": "Kula",
+      "street": "kulgatan 3",
+      "city": "Malmö",
+      "zip": "36677",
+      "phone": "0788383838",
+      "email": "kalle@gmail.com",
+      "password": "123",
+      "type": "user",
+      "courses": []
     }
   ],
   "logged": [
     {
       "id": "1",
-      "email": "user@gmail.com",
-      "userId": "2",
-      "type": "user"
+      "user": {
+        "id": "2",
+        "name": "Hanna",
+        "lastname": "Jacobsen",
+        "street": "lavägen 1",
+        "city": "Landskrona",
+        "zip": "45578",
+        "phone": "0733444444",
+        "email": "user@gmail.com",
+        "password": "123",
+        "type": "user",
+        "courses": [
+          "1"
+        ]
+      }
     }
   ]
 }

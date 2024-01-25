@@ -4,19 +4,19 @@ import { addCourseCard } from './dom.js'
 
 const initProfile = async (logged) => {
 
-    const user = await get(`users/${logged.userId}`)
+    // const user = await get(`users/${logged.user.id}`)
     const courses = await get('courses')
     
-    for(let [key, value] of Object.entries(user)) {
+    for(let [key, value] of Object.entries(logged.user)) {
 
         const input = document.getElementById(key)
         if(input !== null){
             input.value = value
         }
     }
-    console.log(user.id);
-    updateUser(user)
-    addCourses(user, courses)
+    console.log(logged.user.id);
+    updateUser(logged.user)
+    addCourses(logged.user, courses)
     loggOut()
 }
 
@@ -36,6 +36,10 @@ const updateUser = async (user) => {
         data['type'] = user.type
         data['courses'] = user.courses
         await update(`users/${user.id}`, data)
+        await update('logged/1', {
+                                    id: "1",
+                                    user: data
+                                 })
     })
 }
 
@@ -45,9 +49,7 @@ const loggOut = async () => {
 
         await update('logged/1', {
                                     id: "1",
-                                    email: null,
-                                    userId: null,
-                                    type: null
+                                    user: null
                                  })
         location.href = '../index.html'
     })
