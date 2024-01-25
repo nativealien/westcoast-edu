@@ -4,9 +4,11 @@ import { handleForm } from "./data.js";
 const initInfo = async (logged) => {
     const id = location.search.split('=')[1]
 
-    const course = await get(`courses/${id}`)
+    const course = await get(`courses/` + id)
 
-    console.log(logged.user, id);
+    // console.log(logged.user, id);
+    // console.log(course);
+    
     
 
     for(let [key, value] of Object.entries(course)) {
@@ -34,11 +36,8 @@ const initInfo = async (logged) => {
         document.getElementById('update-btn').style.display = 'none'
         document.getElementById('delete-btn').style.display = 'none'
         document.getElementById('login-btn').style.display = 'none'
-        bookCourse(id, logged.user.id)
+        bookCourse(id, logged.user.id, course)
     }
-
-    console.log(course);
-    
 }
 
 const loginBtn = () => {
@@ -65,23 +64,27 @@ const deleteCourse = async (id) => {
     })
 }
 
-const bookCourse = async (id, loggId) => {
+const bookCourse = async (id, loggId, course) => {
     document.getElementById('user-btn').addEventListener('click', async () => {
-        console.log('book course', id, loggId);
         
         const user = await get('users/' + loggId)
 
         user.courses.push(id)
+        course.book.push(loggId)
 
+        const bookSet = new Set(course.book)
+        const book = [...bookSet]
+        course.book = book
+ 
         const coursesSet = new Set(user.courses)
         const courses = [...coursesSet]
-
         user.courses = courses
 
         await update('users/' + loggId, user)
         await update('logged/1', { 
             id: "1", 
             user: user})
+        await update('courses/' + id, course)
 
     })
 }
@@ -90,9 +93,10 @@ const listBooking = async (course) => {
     const users = await get('users')
     console.log(users);
 
-    // course.book.forEach( user => {
-    //     user
-    // });
+    course.book.forEach( id => {
+        console.log(users[id]);
+        
+    });
     
 }
 
