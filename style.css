@@ -2,7 +2,6 @@
 
 @import './content/css/reset.css';
 @import './content/css/general.css';
-@import './content/css/header.css';
-@import './content/css/main.css';
+@import './content/css/nav.css';
 @import './content/css/section.css';
 @import './content/css/form.css';

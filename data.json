@@ -2,14 +2,14 @@
   "courses": [
     {
       "id": "1",
-      "course": "Javascript",
+      "course": "Javascript1",
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
-      "image": "Javascript.svg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
-      "rating": "2",
+      "rating": "1",
+      "image": "Javascript.svg",
       "book": [
         "2"
       ]
@@ -161,19 +161,7 @@
   "logged": [
     {
       "id": "1",
-      "user": {
-        "id": "1",
-        "name": "Adam3",
-        "lastname": "Svensson",
-        "street": "Krogvägen 41",
-        "city": "Lund",
-        "zip": "37782",
-        "phone": "0733772277",
-        "email": "admin@gmail.com",
-        "password": "123",
-        "type": "admin",
-        "courses": []
-      }
+      "user": null
     }
   ]
 }
