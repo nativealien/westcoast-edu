@@ -1,6 +1,6 @@
 import { get, update } from "./client.js";
 import { handleForm } from "./data.js";
-import { addCourseCard, addAdminBtn } from './dom.js'
+import { addCourseCard, addAdminBtn, addTextElem } from './dom.js'
 
 const initProfile = async (logged) => {
 
@@ -22,6 +22,7 @@ const initProfile = async (logged) => {
 
 const addCourses = async (user, courses) => {
     if(user.courses.length > 0){
+        addTextElem('Dina bokade kurser:', 'h2')
         user.courses.forEach( id => {
             console.log(courses[id-1]);
             addCourseCard(courses[id-1])
