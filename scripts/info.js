@@ -4,7 +4,6 @@ import { handleForm } from "./data.js";
 
 const initInfo = async (logged) => {
     const id = location.search.split('=')[1]
-
     const course = await get(`courses/` + id)
 
     for(let [key, value] of Object.entries(course)) {
