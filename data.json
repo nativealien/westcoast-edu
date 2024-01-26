@@ -10,7 +10,9 @@
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
-      "book": []
+      "book": [
+        "2"
+      ]
     },
     {
       "id": "2",
@@ -22,7 +24,9 @@
       "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
-      "book": []
+      "book": [
+        "2"
+      ]
     },
     {
       "id": "3",
@@ -122,7 +126,10 @@
       "email": "user@gmail.com",
       "password": "123",
       "type": "user",
-      "courses": []
+      "courses": [
+        "1",
+        "2"
+      ]
     },
     {
       "id": "3",
@@ -154,7 +161,19 @@
   "logged": [
     {
       "id": "1",
-      "user": null
+      "user": {
+        "id": "1",
+        "name": "Adam3",
+        "lastname": "Svensson",
+        "street": "Krogvägen 41",
+        "city": "Lund",
+        "zip": "37782",
+        "phone": "0733772277",
+        "email": "admin@gmail.com",
+        "password": "123",
+        "type": "admin",
+        "courses": []
+      }
     }
   ]
 }

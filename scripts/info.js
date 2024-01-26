@@ -1,4 +1,5 @@
 import { get, update, del } from "./client.js";
+import { addTextElem } from "./dom.js";
 import { handleForm } from "./data.js";
 
 const initInfo = async (logged) => {
@@ -21,6 +22,7 @@ const initInfo = async (logged) => {
         const button = document.getElementById('login-btn')
         button.id = type + '-btn'
         if(type === 'admin'){
+            listBooking(course, logged)
             button.value = 'Uppdatera'
             updateCourse(id, course)
         }else { 
@@ -99,12 +101,12 @@ const listBooking = async (course, logged) => {
     if(logged.user.type === 'user'){
         logged.user.courses.forEach(id => {
             if(id === course.id){
-                console.log('Du har bokat denna kursen!');
+                addTextElem('Du har bokat denna kursen!', 'h2');
             }
         });
     }else if (logged.user.type === 'admin'){
         course.book.forEach(id => {
-            console.log(`${users[id-1].name} har bokat kursen`);
+            addTextElem(`${users[id-1].name} har bokat kursen`, 'h2');
             
         })
     }

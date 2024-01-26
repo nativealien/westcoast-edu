@@ -22,7 +22,7 @@ const loginBtn = (users) => {
                                 await update('logged/1', { 
                                                     id: "1", 
                                                     user: user})
-                                location.href = '../index.html'
+                                location.href = 'profile.html'
                             }else { console.log('INGEN TRÄFF!'); }
                         });
                     }

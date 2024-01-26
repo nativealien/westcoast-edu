@@ -1,4 +1,6 @@
 
+const container = document.getElementById('main-container');
+
 const addLogin = (logged, path) => {
     const container = document.getElementById('nav-right')
 
@@ -18,7 +20,7 @@ const addLogin = (logged, path) => {
 }
 
 const addCourseCard = (course) => {
-    const container = document.getElementById('main-container')
+    // const container = document.getElementById('main-container')
 
     const locArr = location.pathname.split('/')
     const loc = locArr[locArr.length - 1]
@@ -56,21 +58,30 @@ const addCourseCard = (course) => {
 }
 
 const addAdminBtn = (logged) => {
-    console.log(logged);
     
     if(logged.user.type === 'admin'){
-        const container = document.getElementById('main-container');
+        // const container = document.getElementById('main-container');
 
         const adminBtn = document.createElement('button');
+        adminBtn.type = 'submit'
         adminBtn.id = 'add-btn'
         adminBtn.textContent = 'Lägg Till Kurs'
+        adminBtn.style.backgroundColor = 'lightgreen'
+        adminBtn.style.marginTop = "20px";
+        adminBtn.style.fontSize = '2rem'
 
         adminBtn.addEventListener('click', () => {
-            location.href = 'course-add.html'
+            location.href = './course-add.html'
         })
 
         container.appendChild(adminBtn)
     }
+}
+
+const addTextElem = (text, elem) => {
+    const textDiv = document.createElement(elem)
+    textDiv.textContent = text
+    container.appendChild(textDiv)
 }
 
 
@@ -79,4 +90,4 @@ const div = (elem) => {
     return div}
 
 
-export { addLogin, addCourseCard, addAdminBtn, div }
+export { addLogin, addCourseCard, addAdminBtn, addTextElem, div }

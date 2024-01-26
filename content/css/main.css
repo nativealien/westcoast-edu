@@ -28,13 +28,13 @@ main {
             background-color: blanchedalmond;
         }
 
-        .form-btns {
+        #form-btns {
             display: flex;
         }
-        .form-btns > input {
+        #form-btns > input {
             cursor:pointer;
             background-color: rgb(207, 146, 15);
         }
-        .form-btns > input:hover{
-            background-color: bisque;
+        #form-btns > input:hover{
+            background-color:bisque;
         }

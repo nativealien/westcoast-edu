@@ -1,6 +1,6 @@
 import { get, update } from "./client.js";
 import { handleForm } from "./data.js";
-import { addCourseCard } from './dom.js'
+import { addCourseCard, addAdminBtn } from './dom.js'
 
 const initProfile = async (logged) => {
 
@@ -14,18 +14,20 @@ const initProfile = async (logged) => {
             input.value = value
         }
     }
-    console.log(logged.user.id);
     updateUser(logged.user)
+    addAdminBtn(logged)
     addCourses(logged.user, courses)
     loggOut()
 }
 
 const addCourses = async (user, courses) => {
-    user.courses.forEach( id => {
-        console.log(courses[id-1]);
-        addCourseCard(courses[id-1])
-        
-    })
+    if(user.courses.length > 0){
+        user.courses.forEach( id => {
+            console.log(courses[id-1]);
+            addCourseCard(courses[id-1])
+            
+        })
+    };
 }
 
 const updateUser = async (user) => {
