@@ -29,7 +29,6 @@ const initInfo = async (logged) => {
             if(checkBook(course, logged)){
                 button.value = 'Du har bokat denna kursen'
                 button.style.backgroundColor = 'green'
-                button.style.cursor = 'arrow'
             }else {
                 bookCourse(id, logged.user.id, course) 
                 button.value = 'Boka'
@@ -49,6 +48,7 @@ const updateCourse = async (id, course) => {
       
         const data = handleForm('info-form', id)
         data['image'] = course.image
+        data['rating'] = course.rating
         data['book'] = course.book
         await update(`courses/${id}`, data)
         location.href = 'courses.html'
@@ -96,7 +96,6 @@ const checkBook = (course, logged) => {
 
 const listBooking = async (course, logged) => {
     const users = await get('users')
-    console.log(course.id, logged);
 
     if(logged.user.type === 'user'){
         logged.user.courses.forEach(id => {

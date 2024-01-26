@@ -1,23 +1,54 @@
 
 
 #main-container{
-    padding: 20px;}
+    width: auto;
+    padding: 10px;
+
+    display:grid;
+    grid-template-columns: auto auto;
+    gap: 10px;}
 
     a {
-        margin: 10px;
+        display: flex;
+    }
+    h2, h3, p {
+        margin: 0;
+        padding: 0;
     }
 
     #home-card {
-        padding: 10px;
-        border-radius: 20px;
+        padding: 0;
+        border: 2px solid rgb(231, 135, 33);
+        border-radius: 30px;
 
         text-decoration: none;
         background-color: blanchedalmond;
         color: black; }
+        #home-card > a > div {
+            width: 40%;
+            padding: 10px;
+        }
+
     #home-card:hover{
         background-color: coral;
     }
-    #home-card > img {
-        width: 90px;
-        height: 90px;
+    #home-card > a > img {
+        width: 120px;
+        height: 120px;
     }
+
+@media (max-width: 1200px) {
+        #main-container{
+            width: 100%;
+            grid-template-columns: auto;
+        }
+        #home-card {
+            width: 100vw;
+        }
+        #home-card > a {
+            flex-direction: column;
+        }
+        #right-card {
+            display: none;
+        }
+}

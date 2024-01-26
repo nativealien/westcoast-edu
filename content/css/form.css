@@ -13,14 +13,18 @@ form{
         background-color: blanchedalmond;
     }
 
-    .form-btns {
+    #form-btns {
         display: flex;
     }
-    .form-btns > input {
-        cursor: pointer;
+    #form-btns > input {
+        cursor:pointer;
         background-color: rgb(207, 146, 15);
     }
-    .form-btns > input:hover{
-        background-color: bisque;
+    #form-btns > input:hover{
+        background-color:bisque;
     }
-    
+@media (max-width: 1200px){
+    form{
+        width: 100%;
+    }
+}

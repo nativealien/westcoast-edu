@@ -2,7 +2,7 @@
 const container = document.getElementById('main-container');
 
 const addLogin = (logged, path) => {
-    const container = document.getElementById('nav-right')
+    const container = document.getElementById('nav-container')
 
     const aTag = div('a')
     const liTag = div('li')
@@ -25,36 +25,64 @@ const addCourseCard = (course) => {
     const locArr = location.pathname.split('/')
     const loc = locArr[locArr.length - 1]
 
-    const image = div('img')
+    const cardHome = div('div')
+    cardHome.id = 'home-card'
+
+    const cardImg = div('img')
     const cardA = div('a')
     if(loc === 'index.html'){
         cardA.href = './pages/course-info.html?id=' + course.id
-        image.src = './content/images/' + course.image
+        cardImg.src = './content/images/' + course.image
     } else {
         cardA.href = './course-info.html?id=' + course.id
-        image.src = '../content/images/' + course.image
+        cardImg.src = '../content/images/' + course.image
     }
 
-    const cardDiv = div('div')
-    cardDiv.id = 'home-card'
+    // Left Div of course card
+    const cardLeft = div('div')
+    cardLeft.id = 'left-card'
 
     const cardH2 = div('h2')
     cardH2.textContent = course.course
 
-    const cardP1 = div('p')
-    cardP1.textContent = course.description
+    const cardRate = div('h3')
+    cardRate.textContent = `Rating: ${course.rating}`
 
-    const cardP2 = div('p')
-    cardP2.textContent = course.type
+    const cardDesc = div('p')
+    cardDesc.textContent = course.description
 
-    cardDiv.appendChild(image)
-    cardDiv.appendChild(cardH2)
-    cardDiv.appendChild(cardP1)
-    cardDiv.appendChild(cardP2)
+    cardLeft.appendChild(cardH2)
+    cardLeft.appendChild(cardRate)
+    cardLeft.appendChild(cardDesc)
 
-    cardA.appendChild(cardDiv)
+    // Right Div of course card
+    const cardRight = div('div')
+    cardRight.id = 'right-card'
 
-    container.appendChild(cardA)
+    const cardType = div('p')
+    cardType.textContent = `Kurs typ: ${course.type}`
+
+    const cardDays = div('p')
+    cardDays.textContent = `Antal dagar: ${course.days}`
+
+    const cardStart = div('p')
+    cardStart.textContent = `Start datum: ${course.start}`
+
+    const cardCost = div('p')
+    cardCost.textContent = course.cost
+
+    cardRight.appendChild(cardType)
+    cardRight.appendChild(cardDays)
+    cardRight.appendChild(cardStart)
+    cardRight.appendChild(cardCost)
+
+    cardA.appendChild(cardImg)
+    cardA.appendChild(cardLeft)
+    cardA.appendChild(cardRight)
+
+    cardHome.appendChild(cardA)
+
+    container.appendChild(cardHome)
 }
 
 const addAdminBtn = (logged) => {

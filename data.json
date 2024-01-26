@@ -2,14 +2,14 @@
   "courses": [
     {
       "id": "1",
-      "course": "Javascript",
+      "course": "Javascript1",
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
-      "image": "Javascript.svg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
-      "rating": "2",
+      "rating": "1",
+      "image": "Javascript.svg",
       "book": [
         "2"
       ]
