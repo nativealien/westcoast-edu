@@ -18,7 +18,6 @@ const loginBtn = (users) => {
         if(formObj !== null){
                         users.forEach(async user => {
                             if( user.email === formObj.email && user.password === formObj.password){
-                                console.log(user.email, user.id, user.type);
                                 await update('logged/1', { 
                                                     id: "1", 
                                                     user: user})
@@ -30,7 +29,7 @@ const loginBtn = (users) => {
 }
 
 const signupBtn = () => {
-    const signBtn = document.getElementById('sign-btn').addEventListener('click', () => {
+    document.getElementById('sign-btn').addEventListener('click', () => {
         location.href = 'signup.html'
     })
 }

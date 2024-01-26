@@ -4,9 +4,6 @@ const handleForm = (formId, objId) => {
     const form = document.getElementById(formId)
     const formData = new FormData(form)
     
-    console.log(form, formData);
-    
-
     const newObj = { }
 
     if(objId !== ''){
@@ -14,9 +11,10 @@ const handleForm = (formId, objId) => {
     }
 
     let check = true
+    let error = 'Du måste fylla i : '
     for(const [key, value] of formData.entries()){
         if(value === ''){
-            console.log(`Du måste fylla i ${key}`)
+            error = error + `${key} - `
             check = false
         }else {
             newObj[key] = value
@@ -25,6 +23,7 @@ const handleForm = (formId, objId) => {
     if(check){ 
         return newObj 
     }else {
+        alert(error)
         return null
     }
 }
