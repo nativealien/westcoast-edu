@@ -44,4 +44,4 @@ const initApp = async () => {
     }
 }
 
-initApp()
+document.addEventListener('DOMContentLoaded', initApp())
