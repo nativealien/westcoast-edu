@@ -105,7 +105,7 @@ const listBooking = async (course, logged) => {
         });
     }else if (logged.user.type === 'admin'){
         course.book.forEach(id => {
-            addTextElem(`${users[id-1].name} har bokat kursen`, 'h2');
+            addTextElem(`${users[id-1].name} har bokat kursen`, 'h3');
             
         })
     }

@@ -69,7 +69,7 @@ const addCourseCard = (course) => {
     cardStart.textContent = `Start datum: ${course.start}`
 
     const cardCost = div('p')
-    cardCost.textContent = course.cost
+    cardCost.textContent = `Pris: ${course.cost}`
 
     cardRight.appendChild(cardType)
     cardRight.appendChild(cardDays)
