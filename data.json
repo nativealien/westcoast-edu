@@ -20,10 +20,10 @@
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
-      "image": "python-light.svg",
       "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
+      "image": "python-light.svg",
       "book": [
         "2",
         "4"
@@ -105,18 +105,6 @@
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "8",
-      "book": []
-    },
-    {
-      "id": "9",
-      "course": "Photoshop",
-      "type": "Plats",
-      "days": "29",
-      "start": "23-04-2024",
-      "description": "Rolig photoshop kurs",
-      "cost": "17000",
-      "image": "temp.jpg",
-      "rating": "9",
       "book": []
     }
   ],

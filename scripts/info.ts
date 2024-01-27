@@ -119,10 +119,6 @@ const checkBook = (course: any, logged: any) => {
         if(id === course.id){ check = true }
     })
     return check
-    
-    // logged.courses.forEach( id => {
-    //     if(id === course.id){ return true; }
-    // })
 }
 
 const listBooking = async (course: any, logged: any) => {
@@ -135,10 +131,13 @@ const listBooking = async (course: any, logged: any) => {
             }
         });
     }else if (logged.user.type === 'admin'){
+        const container = document.getElementById('main-container')
+        const bookDiv = document.createElement('div')
         course.book.forEach( (id: any) => {
-            addTextElem(`${users[id-1].name} har bokat kursen`, 'h3');
-            
+            const textElem: HTMLElement = addTextElem(`${users[id-1].name} har bokat kursen`, 'h3');
+            bookDiv.appendChild(textElem)
         })
+        container?.appendChild(bookDiv)
     }
 }
 

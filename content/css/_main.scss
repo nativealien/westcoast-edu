@@ -1,0 +1,114 @@
+
+
+main{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    position: relative;
+    top: 150px;
+
+    background-color: $sec-color;
+    h2{
+        font-size: $h2-font-size;
+        font-family: 'Gill Italic', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        color: $pri-font-color;
+
+        @include respond-to(mobile){
+            padding: 0;
+            margin: 0;
+        }
+    }
+    p{
+        font-family: $font-rubik;
+        font-size: 2rem;
+    }
+    form{
+        width: 50%;
+        display:flex;
+        flex-direction: column;
+
+        @include respond-to(mobile){
+            width: auto;
+        }
+
+        input{
+            width: auto;
+            overflow: auto;
+
+            font-family: $font-rubik;
+            font-size: 1.5rem;
+        }
+    }
+    #main-container{
+        margin: auto;
+        padding: 10px;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+
+        @include respond-to('tablet'){
+            grid-template-columns: 1fr;
+        }
+        
+
+        #home-card{
+            display: flex;
+
+            @include respond-to('tablet'){
+                width: auto;
+            }
+
+            h2, h3{
+                padding:0;
+                margin: 0;
+
+                font-family: $font-rubik;
+                color: $pri-font-color;
+            }
+            p {
+                padding:0;
+                margin: 0;
+
+                font-family: $font-rubik;
+                font-size: 1.1rem;
+
+                color: $sec-font-color;
+            }
+
+            a {
+                height: 150px;
+                width: 100%;
+                margin: auto;
+                border: 2px solid $border-color;
+                border-radius: 25px;
+                display: grid;
+                grid-template-columns: 90px auto 200px;
+                gap: 10px;
+                text-decoration: none;
+                color: $pri-font-color;
+                background-color: $card-color;
+                @include respond-to('tablet'){
+                    height: 120px;
+                    grid-template-columns: 90px auto auto;
+                }
+                img{
+                    width: 90px;
+                    height: 90px;
+                }
+                #right-card{
+                    padding-top: 55px;
+                }
+                @include respond-to('mobile'){
+                    #right-card {
+                        display: none;
+                    }
+                }
+            }
+            a:hover{
+                background-color: $card-color-hoover;
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
-      "image": "Javascript.svg",
+      "image": "javascript.svg",
       "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",

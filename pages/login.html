@@ -4,38 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+
     <link rel="stylesheet" href="../style.css">
     <script type="module" src="../dist/app.js" defer></script>
 
     <title>Westcoast Education</title>
 </head>
 <body>
-    <header>
-        <h1>Westcoast Education</h1>
-        <nav>
-            <ul id="nav-container">
-                <li>
-                    <a href="../index.html">Hem</a>
-                </li>
-                <li>
-                    <a href="./courses.html">Kurser</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h2>Logga In</h2>
-        <div id="main-container">
-            <form action="submit" id="login-form">
-                <input type="email" name="email" id="email" placeholder="E-post">
-                <input type="password" name="password" id="password" placeholder="Lösenord">
-                <div id="form-btns">
-                    <input type="submit" id="form-btn" value="Logga In">
-                    <input type="button" id="sign-btn" value="Bli Medlem">
-                </div>
-            </form>
-        </div>
+    <div id="wrapper">
+        <header>
+            <h1>Westcoast <span>Education</span></h1>
+            <nav>
+                <ul id="nav-container">
+                    <li>
+                        <a href="../index.html">Hem</a>
+                    </li>
+                    <li>
+                        <a href="./courses.html">Kurser</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2><i>Logga In</i></h2>
+            <div id="main-container">
+                <form action="submit" id="login-form">
+                    <input type="email" name="email" id="email" placeholder="E-post">
+                    <input type="password" name="password" id="password" placeholder="Lösenord">
+                    <div id="form-btns">
+                        <input type="submit" id="form-btn" value="Logga In">
+                        <input type="button" id="sign-btn" value="Bli Medlem">
+                    </div>
+                </form>
+            </div>
 
-    </main>
+        </main>
+    </div>
 </body>
 </html>

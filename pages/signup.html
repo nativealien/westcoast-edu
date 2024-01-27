@@ -4,41 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+
     <link rel="stylesheet" href="../style.css">
     <script type="module" src="../dist/app.js" defer></script>
 
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Westcoast Education</h1>
-        <nav>
-            <ul id="nav-container">
-                <li>
-                    <a href="../index.html">Hem</a>
-                </li>
-                <li>
-                    <a href="./courses.html">Kurser</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h2>Signup</h2>
-        <form action="submit" id="signup-form" name="signup-form">
-            <input type="text" id="name" name="name" placeholder="Förnamn">
-            <input type="text" id="lastname" name="lastname" placeholder="Efternamn">
-            <input type="text" id="street" name="street" placeholder="Gata">
-            <input type="text" id="city" name="city" placeholder="Stad">
-            <input type="text" id="zip" name="zip" placeholder="Post Nr">
-            <input type="text" id="phone" name="phone" placeholder="Telefon Nr">
-            <input type="text" id="email" name="email" placeholder="E-post">
-            <input type="text" id="password" name="password" placeholder="Lösenord">
-            <div id="form-btns">
-                <input type="submit" id="signup-btn" name="signup-btn" value="Bli Medlem">
-            </div>
-        </form>
-        <div id="main-container"></div>
-    </main>
+    <div id="wrapper">
+        <header>
+            <h1>Westcoast <span>Education</span></h1>
+            <nav>
+                <ul id="nav-container">
+                    <li>
+                        <a href="../index.html">Hem</a>
+                    </li>
+                    <li>
+                        <a href="./courses.html">Kurser</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2><i>Signup</i></h2>
+            <form action="submit" id="signup-form" name="signup-form">
+                <input type="text" id="name" name="name" placeholder="Förnamn">
+                <input type="text" id="lastname" name="lastname" placeholder="Efternamn">
+                <input type="text" id="street" name="street" placeholder="Gata">
+                <input type="text" id="city" name="city" placeholder="Stad">
+                <input type="text" id="zip" name="zip" placeholder="Post Nr">
+                <input type="text" id="phone" name="phone" placeholder="Telefon Nr">
+                <input type="text" id="email" name="email" placeholder="E-post">
+                <input type="text" id="password" name="password" placeholder="Lösenord">
+                <div id="form-btns">
+                    <input type="submit" id="signup-btn" name="signup-btn" value="Bli Medlem">
+                </div>
+            </form>
+            <div id="main-container"></div>
+        </main>
+    </div>
 </body>
 </html>
