@@ -4,10 +4,21 @@
 
 body{
     width: $desk-size;
-    height: 100vh;
+    height: 100%;
 
     margin: auto;
 
     background-color: antiquewhite;
+
+    @include respond-to("tablet"){
+        width: auto;
+    }
+
+    #wrapper{
+        width: auto;
+        height: 100vh;
+        background-color: $sec-color;
+
+    }
 
 }

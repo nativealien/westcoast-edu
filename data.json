@@ -106,18 +106,6 @@
       "cost": "15000",
       "rating": "8",
       "book": []
-    },
-    {
-      "id": "9",
-      "course": "Photoshop",
-      "type": "Plats",
-      "days": "29",
-      "start": "23-04-2024",
-      "description": "Rolig photoshop kurs",
-      "cost": "17000",
-      "image": "temp.jpg",
-      "rating": "9",
-      "book": []
     }
   ],
   "users": [

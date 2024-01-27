@@ -22,8 +22,8 @@ $tri-font-color: #343437;
 // Sizes
 
 $desk-size: 1200px;
-$tab-size: 900px;
-$mobile-size: 500px;
+$tab-max-size: 1200px;
+$mobile-max-size: 650px;
 
 $h1-font-size: 5rem;
 $h2-font-size: 4rem;
@@ -32,6 +32,18 @@ $h3-font-size: 1.5rem;
 // Fonst
 
 $font-rubik: Rubik, 'Gill Italic', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+// Mixins
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'mobile' {
+      @media (max-width: $mobile-max-size) { @content; }
+    } @else if $breakpoint == 'tablet' {
+      @media (max-width: $tab-max-size) { @content; }
+    } @else if $breakpoint == 'desktop' {
+      @media (min-width: $desk-size) { @content; }
+    }
+  }
 
 
 
