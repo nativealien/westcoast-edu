@@ -1,0 +1,14 @@
+// **********************************
+// 1-body.scss
+// **********************************
+
+body{
+    width: $desk-size;
+    height: 100vh;
+
+    margin: auto;
+    border: 2px solid $border-color;
+
+    background-color: $pri-color;
+
+}

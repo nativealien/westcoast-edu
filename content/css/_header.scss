@@ -1,0 +1,42 @@
+
+
+header{
+    width: $desk-size;
+    height: 150px;
+    background-color: $sec-color;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    position:fixed;
+    top: 0px;
+    z-index: 2;
+
+    h1{
+        padding: 0;
+        margin: 0;
+        font-size: $h1-font-size;
+    }
+    nav{
+
+        ul{
+            width: 300px;
+            padding: 0;
+            margin-left: 10px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            li{
+
+                a{
+                    text-decoration: none;
+                    font-size: $h2-font-size;
+
+                    color: $sec-font-color
+                }
+            }
+        }
+    }
+
+}
