@@ -2,13 +2,45 @@ import { get, update, del } from "./client.js";
 import { addTextElem } from "./dom.js";
 import { handleForm } from "./data.js";
 
-const initInfo = async (logged) => {
+interface User {
+    id: string,
+    name: string,
+    lastname: string,
+    street: string,
+    city: string,
+    zip: string,
+    phone: string,
+    email: string,
+    password: string,
+    type: string,
+    courses: string[]
+}
+
+interface Logged {
+    id: string,
+    user: User | null
+}
+
+interface Course {
+    id: string,
+    course: string,
+    type: string,
+    days: string,
+    start: string,
+    description: string,
+    cost: string,
+    rating: string,
+    image: string,
+    book: string[]
+}
+
+const initInfo = async (logged: any) => {
     const id = location.search.split('=')[1]
     const course = await get(`courses/` + id)
 
     for(let [key, value] of Object.entries(course)) {
-        const input = document.getElementById(key)
-        if(input !== null){
+        const input = document.getElementById(key) as any //HTMLInputElement | null
+        if(input){
             input.value = value
             if(logged.user === null || logged.user.type !== 'admin'){
                 input.readOnly = true
@@ -18,7 +50,7 @@ const initInfo = async (logged) => {
 
     const type = logged.user === null ? false : logged.user.type
     if(type){
-        const button = document.getElementById('login-btn')
+        const button = document.getElementById('login-btn') as HTMLInputElement
         button.id = type + '-btn'
         if(type === 'admin'){
             listBooking(course, logged)
@@ -37,15 +69,15 @@ const initInfo = async (logged) => {
 }
 
 const loginBtn = () => {
-    document.getElementById('login-btn').addEventListener('click', async () => {
+    document.getElementById('login-btn')?.addEventListener('click', async () => {
         location.href = 'login.html'
     })
 }
 
-const updateCourse = async (id, course) => {
-    document.getElementById('admin-btn').addEventListener('click', async () => {
+const updateCourse = async (id: any, course: Course) => {
+    document.getElementById('admin-btn')?.addEventListener('click', async () => {
       
-        const data = handleForm('info-form', id)
+        const data = handleForm('info-form', id) as any
         data['image'] = course.image
         data['rating'] = course.rating
         data['book'] = course.book
@@ -54,15 +86,15 @@ const updateCourse = async (id, course) => {
     })
 }
 
-const bookCourse = async (id, loggId, course) => {
-    document.getElementById('user-btn').addEventListener('click', async () => {
+const bookCourse = async (id: any, loggId: any, course: Course) => {
+    document.getElementById('user-btn')?.addEventListener('click', async () => {
         
         const user = await get('users/' + loggId)
 
         user.courses.push(id)
         course.book.push(loggId)
 
-        course.book = checkDubbles(course.book)
+        course.book = checkDubbles(course.book) as string[]
         user.courses = checkDubbles(user.courses)
 
         await update('users/' + loggId, user)
@@ -75,15 +107,15 @@ const bookCourse = async (id, loggId, course) => {
     })
 }
 
-const checkDubbles = (array) => {
+const checkDubbles = (array: any) => {
     const set = new Set(array)
     return [...set]
 }
 
-const checkBook = (course, logged) => {
+const checkBook = (course: any, logged: any) => {
     console.log(course, logged);
     let check = false
-    logged.user.courses.forEach( id => {
+    logged.user.courses.forEach( (id: any) => {
         if(id === course.id){ check = true }
     })
     return check
@@ -93,17 +125,17 @@ const checkBook = (course, logged) => {
     // })
 }
 
-const listBooking = async (course, logged) => {
-    const users = await get('users')
+const listBooking = async (course: any, logged: any) => {
+    const users: User[] = await get('users')
 
     if(logged.user.type === 'user'){
-        logged.user.courses.forEach(id => {
+        logged.user.courses.forEach( (id: any) => {
             if(id === course.id){
                 addTextElem('Du har bokat denna kursen!', 'h2');
             }
         });
     }else if (logged.user.type === 'admin'){
-        course.book.forEach(id => {
+        course.book.forEach( (id: any) => {
             addTextElem(`${users[id-1].name} har bokat kursen`, 'h3');
             
         })

@@ -1,7 +1,7 @@
 
 const api = 'http://localhost:3000/'
 
-const get = async (endPoint) => {
+const get = async (endPoint: string) => {
     try {
         const res = await fetch(`${api}${endPoint}`)
 
@@ -12,12 +12,12 @@ const get = async (endPoint) => {
             throw new Error(`Error at ${res.status}`)
         }
 
-    } catch (error) {
+    } catch (error: any) {
         throw new Error(error.message)
     }
 }
 
-const update = async (endPoint, data) => {
+const update = async (endPoint: any, data: any) => {
     try {
       const response = await fetch(`${api}${endPoint}`, {
         method: 'PUT',
@@ -38,7 +38,7 @@ const update = async (endPoint, data) => {
     }
   }
 
-const add = async (endPoint, data) => {
+const add = async (endPoint: string, data: any) => {
     console.log(`${api}${endPoint}`, data);
     
     try {
@@ -61,7 +61,7 @@ const add = async (endPoint, data) => {
     }
   }
 
-const del = async (endPoint) => {
+const del = async (endPoint: string) => {
     try {
       const response = await fetch(`${api}${endPoint}`, {
         method: 'DELETE',

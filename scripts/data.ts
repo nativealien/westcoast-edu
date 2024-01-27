@@ -1,10 +1,10 @@
 import { div } from "./dom.js"
 
-const handleForm = (formId, objId) => {
-    const form = document.getElementById(formId)
+const handleForm = (formId: string, objId: string) => {
+    const form = document.getElementById(formId) as any
     const formData = new FormData(form)
     
-    const newObj = { }
+    const newObj: any = { }
 
     if(objId !== ''){
         newObj['id'] = objId

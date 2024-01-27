@@ -7,7 +7,7 @@ const initAddCourse = async () => {
     const newId = String(courses.length + 1)
     
     const addBtn = document.getElementById('add-btn')
-    addBtn.addEventListener('click', async e => {
+    addBtn?.addEventListener('click', async e => {
         e.preventDefault()
 
         const data = handleForm('info-form', newId)

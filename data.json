@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": "1",
-      "course": "Javascript1",
+      "course": "Javascript",
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
