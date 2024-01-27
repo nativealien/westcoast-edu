@@ -1,10 +1,10 @@
 
-const container = document.getElementById('main-container');
+const container = document.getElementById('main-container') as HTMLElement;
 
-const addLogin = (logged, path) => {
-    const container = document.getElementById('nav-container')
+const addLogin = (logged: any, path: string) => {
+    const container = document.getElementById('nav-container') as HTMLElement
 
-    const aTag = div('a')
+    const aTag: any = div('a')
     const liTag = div('li')
 
     if(logged.user === null){
@@ -19,7 +19,7 @@ const addLogin = (logged, path) => {
     container.appendChild(liTag)
 }
 
-const addCourseCard = (course) => {
+const addCourseCard = (course: any) => {
     // const container = document.getElementById('main-container')
 
     const locArr = location.pathname.split('/')
@@ -28,8 +28,8 @@ const addCourseCard = (course) => {
     const cardHome = div('div')
     cardHome.id = 'home-card'
 
-    const cardImg = div('img')
-    const cardA = div('a')
+    const cardImg: any = div('img')
+    const cardA: any = div('a')
     if(loc === 'index.html'){
         cardA.href = './pages/course-info.html?id=' + course.id
         cardImg.src = './content/images/' + course.image
@@ -85,7 +85,7 @@ const addCourseCard = (course) => {
     container.appendChild(cardHome)
 }
 
-const addAdminBtn = (logged) => {
+const addAdminBtn = (logged: any) => {
     
     if(logged.user.type === 'admin'){
         // const container = document.getElementById('main-container');
@@ -106,14 +106,14 @@ const addAdminBtn = (logged) => {
     }
 }
 
-const addTextElem = (text, elem) => {
+const addTextElem = (text: string, elem: string) => {
     const textDiv = document.createElement(elem)
     textDiv.textContent = text
     container.appendChild(textDiv)
 }
 
 
-const div = (elem) => { 
+const div = (elem: string) => { 
     const div = document.createElement(elem)
     return div}
 
