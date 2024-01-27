@@ -16,6 +16,13 @@ const initProfile = async (logged) => {
     loggOut();
 };
 const addCourses = async (user, courses) => {
+    const container = document.getElementById('info-text');
+    if (user.type === 'user') {
+        container.textContent = 'Dina bokade kurser:';
+    }
+    else {
+        container.textContent = 'Admin kontroll:';
+    }
     if (user.courses.length > 0) {
         // addTextElem('Dina bokade kurser:', 'h2')
         user.courses.forEach(id => {

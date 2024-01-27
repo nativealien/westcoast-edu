@@ -83,7 +83,7 @@ const addAdminBtn = (logged) => {
 const addTextElem = (text, elem) => {
     const textDiv = document.createElement(elem);
     textDiv.textContent = text;
-    container.appendChild(textDiv);
+    return textDiv;
 };
 const div = (elem) => {
     const div = document.createElement(elem);

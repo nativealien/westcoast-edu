@@ -53,6 +53,12 @@ const initProfile = async (logged: any) => {
 }
 
 const addCourses = async (user: User, courses: Course[]) => {
+    const container = document.getElementById('info-text') as HTMLElement
+    if(user.type === 'user'){
+        container.textContent = 'Dina bokade kurser:'
+    } else {
+        container.textContent = 'Admin kontroll:'
+    }
     if(user.courses.length > 0){
         // addTextElem('Dina bokade kurser:', 'h2')
         user.courses.forEach( id => {

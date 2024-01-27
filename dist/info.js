@@ -81,9 +81,6 @@ const checkBook = (course, logged) => {
         }
     });
     return check;
-    // logged.courses.forEach( id => {
-    //     if(id === course.id){ return true; }
-    // })
 };
 const listBooking = async (course, logged) => {
     const users = await get('users');
@@ -95,9 +92,13 @@ const listBooking = async (course, logged) => {
         });
     }
     else if (logged.user.type === 'admin') {
+        const container = document.getElementById('main-container');
+        const bookDiv = document.createElement('div');
         course.book.forEach((id) => {
-            addTextElem(`${users[id - 1].name} har bokat kursen`, 'h3');
+            const textElem = addTextElem(`${users[id - 1].name} har bokat kursen`, 'h3');
+            bookDiv.appendChild(textElem);
         });
+        container?.appendChild(bookDiv);
     }
 };
 export { initInfo };

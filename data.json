@@ -20,10 +20,10 @@
       "type": "Distans",
       "days": "10",
       "start": "12-02-2024",
-      "image": "python-light.svg",
       "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
       "cost": "15000",
       "rating": "2",
+      "image": "python-light.svg",
       "book": [
         "2",
         "4"
@@ -199,19 +199,7 @@
   "logged": [
     {
       "id": "1",
-      "user": {
-        "id": "1",
-        "name": "Fredrik",
-        "lastname": "Svensson",
-        "street": "Krogvägen 41",
-        "city": "Lund",
-        "zip": "37782",
-        "phone": "0733772277",
-        "email": "admin@gmail.com",
-        "password": "123",
-        "type": "admin",
-        "courses": []
-      }
+      "user": null
     }
   ]
 }
