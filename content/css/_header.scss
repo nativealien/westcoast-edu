@@ -3,7 +3,8 @@
 header{
     width: $desk-size;
     height: 150px;
-    background-color: $sec-color;
+
+    border-bottom: 2px solid $border-color;
 
     display: flex;
     flex-direction: column;
@@ -13,16 +14,32 @@ header{
     top: 0px;
     z-index: 2;
 
+    background-color: $pri-color;
+
     h1{
         padding: 0;
+        padding-left: 10px;
         margin: 0;
         font-size: $h1-font-size;
+        font-family: $font-rubik;
+        color: $pri-font-color;
+
+        span{
+            font-style: italic;
+            color:$sec-font-color;
+        }
     }
     nav{
+        border-top: 2px solid $border-color;
+        padding:0;
+        margin: 0;
+
+        background-color: $tri-color;
 
         ul{
             width: 300px;
             padding: 0;
+            margin: 0;
             margin-left: 10px;
             list-style: none;
             display: flex;
@@ -32,8 +49,9 @@ header{
                 a{
                     text-decoration: none;
                     font-size: $h3-font-size;
+                    font-family: $font-rubik;
 
-                    color: $sec-font-color
+                    color: $pri-font-color
                 }
             }
         }

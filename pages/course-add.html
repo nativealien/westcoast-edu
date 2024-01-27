@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+
     <link rel="stylesheet" href="../style.css">
     <script type="module" src="../dist/app.js" defer></script>
 
@@ -24,21 +29,19 @@
         </nav>
     </header>
     <main>
-        <h2>Kurs Info</h2>
-        <div id="main-container">
-            <form action="submit" id="info-form">
-                <input type="text" id="course" name="course" placeholder="Kurs namn">
-                <input type="text" id="type" name="type" placeholder="Plats el distans">
-                <input type="text" id="days" name="days" placeholder="Antal dagar">
-                <input type="text" id="start" name="start" placeholder="Kurs start">
-                <input type="text" id="description" name="description" placeholder="Beskriv kursen">
-                <input type="text" id="cost" name="cost" placeholder="Pris för kursen">
-                <!-- <input type="text" id="rating" name="rating" placeholder="Rating"> -->
-                <div id="form-btns">
-                    <input type="button" id="add-btn" value="Lägg till kurs">
-                </div>
-            </form>
-        </div>
+        <h2><i>Lägg till en kurs</i></h2>
+        <form action="submit" id="info-form">
+            <input type="text" id="course" name="course" placeholder="Kurs namn">
+            <input type="text" id="type" name="type" placeholder="Plats el distans">
+            <input type="text" id="days" name="days" placeholder="Antal dagar">
+            <input type="text" id="start" name="start" placeholder="Kurs start">
+            <input type="text" id="description" name="description" placeholder="Beskriv kursen">
+            <input type="text" id="cost" name="cost" placeholder="Pris för kursen">
+            <!-- <input type="text" id="rating" name="rating" placeholder="Rating"> -->
+            <div id="form-btns">
+                <input type="button" id="add-btn" value="Lägg till kurs">
+            </div>
+        </form>
     </main>
     <footer>Copyright</footer>
 </body>

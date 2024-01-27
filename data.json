@@ -199,7 +199,19 @@
   "logged": [
     {
       "id": "1",
-      "user": null
+      "user": {
+        "id": "1",
+        "name": "Fredrik",
+        "lastname": "Svensson",
+        "street": "Krogvägen 41",
+        "city": "Lund",
+        "zip": "37782",
+        "phone": "0733772277",
+        "email": "admin@gmail.com",
+        "password": "123",
+        "type": "admin",
+        "courses": []
+      }
     }
   ]
 }
