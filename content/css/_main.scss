@@ -6,13 +6,17 @@ main{
     h2{
         // margin: auto;
         font-size: $h2-font-size;
-        text-align: center;
     }
     form{
-        width: 500px;
-        margin: auto;
+        width: 300px;
         display:flex;
         flex-direction: column;
+
+        input{
+            width: auto;
+
+            font-size: 2rem;
+        }
     }
     #main-container{
         margin: auto;
@@ -25,13 +29,24 @@ main{
         #home-card{
             display: flex;
 
+            h2, h3, p{
+                padding:0;
+                margin: 0;
+            }
+            p {
+                font-size: 1.3rem;
+            }
+
             a {
                 width: 100%;
                 margin: auto;
+                border-radius: 30px;
                 display: grid;
-                grid-template-columns: 90px 200px 200px;
+                grid-template-columns: 90px auto 200px;
+                gap: 10px;
                 text-decoration: none;
-                color: $pri-color;
+                color: rgb(66, 91, 164);
+                background-color: rgb(182, 157, 58);
                 img{
                     width: 90px;
                     height: 90px;
