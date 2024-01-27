@@ -25,7 +25,8 @@
       "cost": "15000",
       "rating": "2",
       "book": [
-        "2"
+        "2",
+        "4"
       ]
     },
     {
@@ -38,7 +39,9 @@
       "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "3",
-      "book": []
+      "book": [
+        "5"
+      ]
     },
     {
       "id": "4",
@@ -74,7 +77,9 @@
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "6",
-      "book": []
+      "book": [
+        "5"
+      ]
     },
     {
       "id": "7",
@@ -86,7 +91,9 @@
       "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
       "cost": "15000",
       "rating": "7",
-      "book": []
+      "book": [
+        "4"
+      ]
     },
     {
       "id": "8",
@@ -99,12 +106,24 @@
       "cost": "15000",
       "rating": "8",
       "book": []
+    },
+    {
+      "id": "9",
+      "course": "Photoshop",
+      "type": "Plats",
+      "days": "29",
+      "start": "23-04-2024",
+      "description": "Rolig photoshop kurs",
+      "cost": "17000",
+      "image": "temp.jpg",
+      "rating": "9",
+      "book": []
     }
   ],
   "users": [
     {
       "id": "1",
-      "name": "Adam3",
+      "name": "Fredrik",
       "lastname": "Svensson",
       "street": "Krogvägen 41",
       "city": "Lund",
@@ -155,25 +174,32 @@
       "email": "kalle@gmail.com",
       "password": "123",
       "type": "user",
-      "courses": []
+      "courses": [
+        "7",
+        "2"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "David",
+      "lastname": "Rizzie",
+      "street": "Anystreet 123",
+      "city": "Washington DC",
+      "zip": "344 43",
+      "phone": "0788383838",
+      "email": "david@gmail.com",
+      "password": "123",
+      "type": "user",
+      "courses": [
+        "6",
+        "3"
+      ]
     }
   ],
   "logged": [
     {
       "id": "1",
-      "user": {
-        "id": "1",
-        "name": "Adam3",
-        "lastname": "Svensson",
-        "street": "Krogvägen 41",
-        "city": "Lund",
-        "zip": "37782",
-        "phone": "0733772277",
-        "email": "admin@gmail.com",
-        "password": "123",
-        "type": "admin",
-        "courses": []
-      }
+      "user": null
     }
   ]
 }
