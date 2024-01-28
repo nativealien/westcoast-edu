@@ -30,3 +30,5 @@ interface Logged {
     id: string,
     user: User | null
 }
+
+export {Course, User, Logged}

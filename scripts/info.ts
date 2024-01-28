@@ -1,38 +1,7 @@
 import { get, update, del } from "./client.js";
 import { addTextElem } from "./dom.js";
 import { handleForm } from "./data.js";
-
-interface User {
-    id: string,
-    name: string,
-    lastname: string,
-    street: string,
-    city: string,
-    zip: string,
-    phone: string,
-    email: string,
-    password: string,
-    type: string,
-    courses: string[]
-}
-
-interface Logged {
-    id: string,
-    user: User | null
-}
-
-interface Course {
-    id: string,
-    course: string,
-    type: string,
-    days: string,
-    start: string,
-    description: string,
-    cost: string,
-    rating: string,
-    image: string,
-    book: string[]
-}
+import { User, Logged, Course } from "./interfaces.js";
 
 const initInfo = async (logged: any) => {
     const id = location.search.split('=')[1]

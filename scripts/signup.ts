@@ -1,19 +1,6 @@
 import { get, add } from "./client.js"
 import { handleForm } from "./data.js"
-
-interface User {
-    id: string,
-    name: string,
-    lastname: string,
-    street: string,
-    city: string,
-    zip: string,
-    phone: string,
-    email: string,
-    password: string,
-    type: string,
-    courses: string[]
-}
+import { User } from "./interfaces.js"
 
 const initSignup = async (): Promise<void> => {
     const users = await get('users')
