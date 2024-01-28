@@ -4,6 +4,9 @@ import { handleForm } from "./data.js";
 const initInfo = async (logged) => {
     const id = location.search.split('=')[1];
     const course = await get(`courses/` + id);
+    const image = document.getElementById('info-img');
+    image.src = `../content/images/${course.image}`;
+    console.log(course.image);
     for (let [key, value] of Object.entries(course)) {
         const input = document.getElementById(key); //HTMLInputElement | null
         if (input) {
@@ -92,7 +95,7 @@ const listBooking = async (course, logged) => {
         });
     }
     else if (logged.user.type === 'admin') {
-        const container = document.getElementById('main-container');
+        const container = document.getElementById('info-container');
         const bookDiv = document.createElement('div');
         course.book.forEach((id) => {
             const textElem = addTextElem(`${users[id - 1].name} har bokat kursen`, 'h3');

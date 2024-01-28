@@ -10,10 +10,6 @@ header{
     flex-direction: column;
     justify-content: end;
 
-    // position:fixed;
-    // top: 0px;
-    // z-index: 2;
-
     background-color: $pri-color;
 
     h1{
@@ -49,7 +45,7 @@ header{
             display: flex;
             li{
                 margin-right: 20px;
-                @include respond-to(tablet){
+                @include respond-to(mobile){
                     margin-right: 0;
                 }
                 a{

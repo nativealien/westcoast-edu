@@ -7,7 +7,7 @@ const initHome = async () => {
 
     courses.forEach( (course: Course) => {
 
-        if(Number(course.rating)<3){
+        if(Number(course.rating)<5){
             addCourseCard(course)
         }
     });

@@ -6,6 +6,11 @@ import { User, Logged, Course } from "./interfaces.js";
 const initInfo = async (logged: any) => {
     const id = location.search.split('=')[1]
     const course = await get(`courses/` + id)
+    const image = document.getElementById('info-img') as HTMLImageElement
+    image.src = `../content/images/${course.image}`
+    console.log(course.image);
+    
+
 
     for(let [key, value] of Object.entries(course)) {
         const input = document.getElementById(key) as any //HTMLInputElement | null
@@ -100,7 +105,7 @@ const listBooking = async (course: any, logged: any) => {
             }
         });
     }else if (logged.user.type === 'admin'){
-        const container = document.getElementById('main-container')
+        const container = document.getElementById('info-container')
         const bookDiv = document.createElement('div')
         course.book.forEach( (id: any) => {
             const textElem: HTMLElement = addTextElem(`${users[id-1].name} har bokat kursen`, 'h3');

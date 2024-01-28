@@ -15,15 +15,23 @@ const loginBtn = (users: any) => {
         e.preventDefault()
 
         const formObj = handleForm('login-form', "") as Partial<User> | null
-
+        let error = ""
         if(formObj !== null){
                         users.forEach(async (user: any) => {
+                            error = ""
                             if( user.email === formObj.email && user.password === formObj.password){
                                 await update('logged/1', { 
                                                     id: "1", 
                                                     user: user})
                                 location.href = 'profile.html'
-                            }else { console.log('INGEN TRÄFF!'); }
+                            }else { 
+                                const errorDiv = document.getElementById('errorDiv') as HTMLElement
+                                errorDiv.style.display = 'block'
+
+                                setTimeout(() => {
+                                    errorDiv.style.display = 'none'
+                                }, 3000)
+                            }
                         });
                     }
     })

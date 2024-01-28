@@ -31,19 +31,24 @@
         </header>
         <main>
             <h2><i>Kurs Info</i></h2>
+            <div id="info-container">
+                <img id="info-img" src="#" alt="Temporary image, for missing files.">
                 <form action="submit" id="info-form">
                     <input type="text" id="course" name="course">
                     <input type="text" id="type" name="type">
+                    <textarea rows="2" type="text" id="description" name="description"></textarea>
+                    <label for="days">Antal dagar:</label>
                     <input type="text" id="days" name="days">
+                    <label for="start">Kurs start:</label>
                     <input type="text" id="start" name="start">
-                    <input type="text" id="description" name="description">
+                    <label for="cost">Kostnad i kr:</label>
                     <input type="text" id="cost" name="cost">
+                    <label for="id">Kurs id:</label>
                     <input type="text" id="rating" name="rating">
                     <div id="form-btns">
-                        <input type="button" id="login-btn" name="login-btn" value="Logga In">
+                        <input type="button" id="login-btn" name="login-btn" value="Logga In för att delta">
                     </div>
                 </form>
-            <div id="main-container">
             </div>
         </main>
     </div>

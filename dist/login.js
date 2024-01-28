@@ -10,8 +10,10 @@ const loginBtn = (users) => {
     loginForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formObj = handleForm('login-form', "");
+        let error = "";
         if (formObj !== null) {
             users.forEach(async (user) => {
+                error = "";
                 if (user.email === formObj.email && user.password === formObj.password) {
                     await update('logged/1', {
                         id: "1",
@@ -20,7 +22,11 @@ const loginBtn = (users) => {
                     location.href = 'profile.html';
                 }
                 else {
-                    console.log('INGEN TRÄFF!');
+                    const errorDiv = document.getElementById('errorDiv');
+                    errorDiv.style.display = 'block';
+                    setTimeout(() => {
+                        errorDiv.style.display = 'none';
+                    }, 3000);
                 }
             });
         }

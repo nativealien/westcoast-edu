@@ -23,18 +23,56 @@ main{
     }
     form{
         width: 50%;
+
+        // border: 2px solid $border-color;
+        border-radius: 5px;
+
         display:flex;
         flex-direction: column;
 
+        background-color: $card-color;
+
         @include respond-to(tablet){
-            width: auto;
+            width: 100%;
         }
 
-        input{
+        input, textarea{
             width: auto;
+            border: 0;
 
             font-family: $font-rubik;
             font-size: 1.5rem;
+
+            background-color: rgba(255, 0, 0, 0);
+        }
+
+        #form-btns{
+            background-color: $sec-color;
+            input{
+                background-color: cornflowerblue;
+            }
+            input:hover{
+                background-color: rgb(124, 147, 191);
+                cursor: pointer;
+            }
+        }
+        #error-div {
+            display:none;
+            background-color: lightcoral;
+            color: red;
+        }
+
+    }
+    #info-container{
+
+        display: flex;
+        
+        img{
+            width: 90px;
+            height: 90px;
+        }
+        @include respond-to(tablet){
+            flex-direction: column;
         }
     }
     #main-container{
