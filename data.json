@@ -3,109 +3,179 @@
     {
       "id": "1",
       "course": "Javascript",
-      "type": "Distans",
+      "type": "Plats",
       "days": "10",
       "start": "12-02-2024",
-      "description": "Grundläggande Javascript i lugn takt, som erbjuds på distans över Microsoft Teams.",
+      "description": "Grundläggande Javascript i lugn takt, som erbjuds på plats.",
       "cost": "15000",
       "rating": "1",
       "image": "Javascript.svg",
       "book": [
-        "2"
+        "3",
+        "4",
+        "5"
       ]
     },
     {
       "id": "2",
       "course": "Python",
       "type": "Distans",
-      "days": "10",
-      "start": "12-02-2024",
-      "description": "Grundläggande Python i lugn takt, som erbjuds på distans över Microsoft Teams.",
-      "cost": "15000",
+      "days": "12",
+      "start": "15-03-2024",
+      "description": "Introduktion till Python-programmering, perfekt för nybörjare, genomförs via distans på Zoom.",
+      "cost": "14000",
       "rating": "2",
-      "image": "python-light.svg",
+      "image": "Python.svg",
       "book": [
-        "2",
-        "4"
+        "3",
+        "5"
       ]
     },
     {
       "id": "3",
       "course": "Java",
-      "type": "Plats",
-      "days": "10",
-      "start": "12-03-2024",
-      "image": "java-light.svg",
-      "description": "Grundläggande Java i lugn takt, som erbjuds på plats hos oss.",
-      "cost": "15000",
+      "type": "Distans",
+      "days": "8",
+      "start": "20-04-2024",
+      "description": "HTML för nybörjare, lär dig grunderna i webbutveckling, kurser hålls online.",
+      "cost": "12000",
       "rating": "3",
+      "image": "java.svg",
       "book": [
         "5"
       ]
     },
     {
       "id": "4",
-      "course": "Rust",
-      "type": "Plats",
-      "days": "10",
-      "start": "12-04-2024",
-      "image": "rust.svg",
-      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
-      "cost": "15000",
+      "course": "Typescript",
+      "type": "Distans",
+      "days": "9",
+      "start": "10-05-2024",
+      "description": "Lär dig Typescript med stil, distanskurs via Teams.",
+      "cost": "13000",
       "rating": "4",
-      "book": []
+      "image": "typescript.svg",
+      "book": [
+        "2",
+        "4"
+      ]
     },
     {
       "id": "5",
-      "course": "Solidity",
-      "type": "Plats",
-      "days": "10",
-      "start": "12-04-2024",
-      "image": "solidity.svg",
-      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
-      "cost": "15000",
+      "course": "React",
+      "type": "plats",
+      "days": "15",
+      "start": "05-06-2024",
+      "description": "React-kurs för mellannivåutvecklare, förbättra dina frontend-färdigheter, kurs på plats.",
+      "cost": "17000",
       "rating": "5",
-      "book": []
+      "image": "react.svg",
+      "book": [
+        "3"
+      ]
     },
     {
       "id": "6",
-      "course": "Typescript",
-      "type": "Plats",
-      "days": "10",
-      "start": "12-04-2024",
-      "image": "typescript.svg",
-      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
-      "cost": "15000",
+      "course": "Angular",
+      "type": "Distans",
+      "days": "14",
+      "start": "18-07-2024",
+      "description": "Angular-kurs, bygg kraftfulla webbapplikationer, distansundervisning via Teams.",
+      "cost": "16500",
       "rating": "6",
+      "image": "angular.svg",
       "book": [
+        "3",
         "5"
       ]
     },
     {
       "id": "7",
-      "course": "React",
+      "course": "Node.js",
       "type": "Plats",
-      "days": "10",
-      "start": "12-04-2024",
-      "image": "react-dark.svg",
-      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
-      "cost": "15000",
+      "days": "13",
+      "start": "22-08-2024",
+      "description": "Backend-utveckling med Node.js, lär dig hantera server-sidan, på plats.",
+      "cost": "16000",
       "rating": "7",
+      "image": "Nodejs.svg",
+      "book": [
+        "2",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "id": "8",
+      "course": "Vue.js",
+      "type": "Distans",
+      "days": "11",
+      "start": "30-09-2024",
+      "description": "Vue.js för front-end utvecklare, interaktiva webbgränssnitt, distanskurs via Zoom.",
+      "cost": "15000",
+      "rating": "8",
+      "image": "Vue.svg",
       "book": [
         "4"
       ]
     },
     {
-      "id": "8",
-      "course": "NodeJS",
+      "id": "9",
+      "course": "SQL",
       "type": "Plats",
       "days": "10",
-      "start": "12-04-2024",
-      "image": "nodejs-light.svg",
-      "description": "Grundläggande Rust i lugn takt, som erbjuds på plats hos oss.",
+      "start": "10-10-2024",
+      "description": "Databashantering med SQL, lär dig hantera och fråga databaser, kurs på plats.",
+      "cost": "14000",
+      "rating": "9",
+      "image": "SQL.svg",
+      "book": [
+        "4"
+      ]
+    },
+    {
+      "id": "10",
+      "course": "Ruby",
+      "type": "Distans",
+      "days": "12",
+      "start": "12-11-2024",
+      "description": "Ruby-programmering från grunden, lär dig bygga webbapplikationer, onlinekurs via Teams.",
+      "cost": "14500",
+      "rating": "10",
+      "image": "Ruby.svg",
+      "book": [
+        "2"
+      ]
+    },
+    {
+      "id": "11",
+      "course": "Rust",
+      "type": "Distans",
+      "days": "14",
+      "start": "15-12-2024",
+      "description": "Rust för nybörjare, lär dig Rust programmering, distanskurs.",
+      "cost": "16000",
+      "rating": "11",
+      "image": "rust.svg",
+      "book": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "12",
+      "course": "Solidity",
+      "type": "Distans",
+      "days": "13",
+      "start": "20-01-2025",
+      "description": "Solidity, lär dig blockchain implementering, distanskurs via Teams.",
       "cost": "15000",
-      "rating": "8",
-      "book": []
+      "rating": "12",
+      "image": "solidity.svg",
+      "book": [
+        "2",
+        "5"
+      ]
     }
   ],
   "users": [
@@ -130,12 +200,14 @@
       "city": "Landskrona",
       "zip": "45578",
       "phone": "0733444444",
-      "email": "user@gmail.com",
+      "email": "user1@gmail.com",
       "password": "123",
       "type": "user",
       "courses": [
-        "1",
-        "2"
+        "7",
+        "4",
+        "10",
+        "12"
       ]
     },
     {
@@ -146,10 +218,16 @@
       "city": "Lund",
       "zip": "26655",
       "phone": "0788383838",
-      "email": "goran@gmail.com",
+      "email": "user2@gmail.com",
       "password": "123",
       "type": "user",
-      "courses": []
+      "courses": [
+        "1",
+        "5",
+        "11",
+        "2",
+        "6"
+      ]
     },
     {
       "id": "4",
@@ -159,12 +237,16 @@
       "city": "Malmö",
       "zip": "36677",
       "phone": "0788383838",
-      "email": "kalle@gmail.com",
+      "email": "user3@gmail.com",
       "password": "123",
       "type": "user",
       "courses": [
-        "7",
-        "2"
+        "9",
+        "11",
+        "8",
+        "1",
+        "4",
+        "7"
       ]
     },
     {
@@ -175,12 +257,16 @@
       "city": "Washington DC",
       "zip": "344 43",
       "phone": "0788383838",
-      "email": "david@gmail.com",
+      "email": "user4@gmail.com",
       "password": "123",
       "type": "user",
       "courses": [
+        "3",
+        "12",
+        "2",
+        "1",
         "6",
-        "3"
+        "7"
       ]
     }
   ],
