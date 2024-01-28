@@ -2,8 +2,8 @@
 // Style.scss -> style.css
 // routing
 
+@import './content/css/_reset.scss';
 @import './content/css/_general.scss';
 @import './content/css/_body.scss';
 @import './content/css/_header.scss';
 @import './content/css/_main.scss';
-@import './content/css/_footer.scss';

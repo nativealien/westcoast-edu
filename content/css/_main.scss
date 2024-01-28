@@ -4,8 +4,6 @@ main{
     width: auto;
     height: auto;
     padding: 10px;
-    position: relative;
-    top: 150px;
 
     background-color: $sec-color;
     h2{
@@ -28,13 +26,12 @@ main{
         display:flex;
         flex-direction: column;
 
-        @include respond-to(mobile){
+        @include respond-to(tablet){
             width: auto;
         }
 
         input{
             width: auto;
-            overflow: auto;
 
             font-family: $font-rubik;
             font-size: 1.5rem;
@@ -78,29 +75,43 @@ main{
             }
 
             a {
-                height: 150px;
+                height: auto;
                 width: 100%;
                 margin: auto;
                 border: 2px solid $border-color;
                 border-radius: 25px;
                 display: grid;
-                grid-template-columns: 90px auto 200px;
+                grid-template-columns: 90px 50% auto;
                 gap: 10px;
                 text-decoration: none;
                 color: $pri-font-color;
                 background-color: $card-color;
                 @include respond-to('tablet'){
-                    height: 120px;
-                    grid-template-columns: 90px auto auto;
+                    height: auto;
+                    grid-template-columns: 90px 50% auto;
                 }
                 img{
                     width: 90px;
                     height: 90px;
                 }
+                #left-card{
+                    width: 80%;
+                }
                 #right-card{
+                    padding: 0;
+                    margin: 0;
                     padding-top: 55px;
+                    display: flex;
+                    flex-direction: column;
+                    p{
+                        padding: 0;
+                        margin: 0;
+                    }
                 }
                 @include respond-to('mobile'){
+                    #left-card {
+                        width: auto;
+                    }
                     #right-card {
                         display: none;
                     }
