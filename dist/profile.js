@@ -25,8 +25,10 @@ const addCourses = async (user, courses) => {
     }
     if (user.courses.length > 0) {
         // addTextElem('Dina bokade kurser:', 'h2')
-        user.courses.forEach(id => {
-            const course = courses.find(course => course.id === id);
+        user.courses.forEach((id) => {
+            const newId = id.split("-");
+            console.log(newId);
+            const course = courses.find(course => course.id === newId[0]);
             addCourseCard(course);
         });
     }

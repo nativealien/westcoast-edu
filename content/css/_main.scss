@@ -48,6 +48,8 @@ main{
 
         #form-btns{
             background-color: $sec-color;
+
+            display: flex;
             input{
                 background-color: cornflowerblue;
             }
@@ -55,13 +57,16 @@ main{
                 background-color: rgb(124, 147, 191);
                 cursor: pointer;
             }
+            #choice{
+                display: none;
+            }
         }
-        #error-div {
-            display:none;
-            background-color: lightcoral;
-            color: red;
-        }
+    }
+    #error-div {
+        color: red;
+        font-size: 2rem;
 
+        background-color: $sec-color;
     }
     #info-container{
 

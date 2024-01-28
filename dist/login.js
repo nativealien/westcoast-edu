@@ -10,11 +10,12 @@ const loginBtn = (users) => {
     loginForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formObj = handleForm('login-form', "");
-        let error = "";
+        const errorDiv = document.getElementById('error-div');
+        let check = false;
         if (formObj !== null) {
             users.forEach(async (user) => {
-                error = "";
                 if (user.email === formObj.email && user.password === formObj.password) {
+                    check = true;
                     await update('logged/1', {
                         id: "1",
                         user: user
@@ -22,11 +23,13 @@ const loginBtn = (users) => {
                     location.href = 'profile.html';
                 }
                 else {
-                    const errorDiv = document.getElementById('errorDiv');
-                    errorDiv.style.display = 'block';
-                    setTimeout(() => {
-                        errorDiv.style.display = 'none';
-                    }, 3000);
+                    if (!check) {
+                        errorDiv.textContent = 'Fel email eller lösenord...';
+                        errorDiv.style.display = 'block';
+                        setTimeout(() => {
+                            errorDiv.style.display = 'none';
+                        }, 3000);
+                    }
                 }
             });
         }

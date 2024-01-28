@@ -6,7 +6,6 @@ const initInfo = async (logged) => {
     const course = await get(`courses/` + id);
     const image = document.getElementById('info-img');
     image.src = `../content/images/${course.image}`;
-    console.log(course.image);
     for (let [key, value] of Object.entries(course)) {
         const input = document.getElementById(key); //HTMLInputElement | null
         if (input) {
@@ -26,12 +25,24 @@ const initInfo = async (logged) => {
             updateCourse(id, course);
         }
         else {
-            if (checkBook(course, logged)) {
-                button.value = 'Du har bokat denna kursen';
+            const checkCourse = checkBook(course, logged);
+            console.log(checkCourse);
+            if (checkCourse !== "") {
+                console.log(checkCourse);
+                let newString = "";
+                if (checkCourse === 'remote') {
+                    newString = 'distans';
+                }
+                else {
+                    newString = 'på plats';
+                }
+                button.value = 'Du har bokat denna kursen ' + newString;
                 button.style.backgroundColor = 'green';
             }
             else {
-                bookCourse(id, logged.user.id, course);
+                const check = document.getElementById('choice');
+                check.style.display = 'block';
+                bookCourse(id, check, logged.user.id, course);
                 button.value = 'Boka';
             }
         }
@@ -55,20 +66,24 @@ const updateCourse = async (id, course) => {
         location.href = 'courses.html';
     });
 };
-const bookCourse = async (id, loggId, course) => {
+const bookCourse = async (id, check, loggId, course) => {
     document.getElementById('user-btn')?.addEventListener('click', async () => {
         const user = await get('users/' + loggId);
-        user.courses.push(id);
-        course.book.push(loggId);
-        course.book = checkDubbles(course.book);
-        user.courses = checkDubbles(user.courses);
-        await update('users/' + loggId, user);
-        await update('logged/1', {
-            id: "1",
-            user: user
-        });
-        await update('courses/' + id, course);
-        location.href = 'profile.html';
+        const userChoice = id + '-' + check.value;
+        if (check.value !== "") {
+            console.log(userChoice);
+            user.courses.push(userChoice);
+            course.book.push(loggId);
+            course.book = checkDubbles(course.book);
+            user.courses = checkDubbles(user.courses);
+            await update('users/' + loggId, user);
+            await update('logged/1', {
+                id: "1",
+                user: user
+            });
+            await update('courses/' + id, course);
+            location.href = 'profile.html';
+        }
     });
 };
 const checkDubbles = (array) => {
@@ -77,13 +92,12 @@ const checkDubbles = (array) => {
 };
 const checkBook = (course, logged) => {
     console.log(course, logged);
-    let check = false;
+    let newId = ["", ""];
     logged.user.courses.forEach((id) => {
-        if (id === course.id) {
-            check = true;
-        }
+        newId = id.split('-');
+        // if(newId[0] === course.id){ check = true }
     });
-    return check;
+    return newId[1];
 };
 const listBooking = async (course, logged) => {
     const users = await get('users');

@@ -46,15 +46,12 @@ const addCourseCard = (course) => {
     // Right Div of course card
     const cardRight = div('div');
     cardRight.id = 'right-card';
-    const cardType = div('p');
-    cardType.textContent = `Kurs typ: ${course.type}`;
     const cardDays = div('p');
     cardDays.textContent = `Antal dagar: ${course.days}`;
     const cardStart = div('p');
     cardStart.textContent = `Start datum: ${course.start}`;
     const cardCost = div('p');
     cardCost.textContent = `Pris: ${course.cost}`;
-    cardRight.appendChild(cardType);
     cardRight.appendChild(cardDays);
     cardRight.appendChild(cardStart);
     cardRight.appendChild(cardCost);

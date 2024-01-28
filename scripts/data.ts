@@ -14,7 +14,7 @@ const handleForm = (formId: string, objId: string) => {
     let error = 'Du måste fylla i : '
     for(const [key, value] of formData.entries()){
         if(value === ''){
-            error = error + `${key} - `
+            error = error + `${key} `
             check = false
         }else {
             newObj[key] = value
@@ -23,7 +23,14 @@ const handleForm = (formId: string, objId: string) => {
     if(check){ 
         return newObj 
     }else {
-        alert(error)
+        const errorDiv = document.getElementById('error-div') as HTMLElement
+
+        errorDiv.style.display = 'block'
+        errorDiv.textContent = error
+
+        setTimeout(() => {
+            errorDiv.style.display = 'none'
+        }, 3000)
         return null
     }
 }

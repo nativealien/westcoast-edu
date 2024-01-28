@@ -9,7 +9,7 @@ const handleForm = (formId, objId) => {
     let error = 'Du måste fylla i : ';
     for (const [key, value] of formData.entries()) {
         if (value === '') {
-            error = error + `${key} - `;
+            error = error + `${key} `;
             check = false;
         }
         else {
@@ -20,7 +20,12 @@ const handleForm = (formId, objId) => {
         return newObj;
     }
     else {
-        alert(error);
+        const errorDiv = document.getElementById('error-div');
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = error;
+        setTimeout(() => {
+            errorDiv.style.display = 'none';
+        }, 3000);
         return null;
     }
 };

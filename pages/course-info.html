@@ -35,7 +35,6 @@
                 <img id="info-img" src="#" alt="Temporary image, for missing files.">
                 <form action="submit" id="info-form">
                     <input type="text" id="course" name="course">
-                    <input type="text" id="type" name="type">
                     <textarea rows="2" type="text" id="description" name="description"></textarea>
                     <label for="days">Antal dagar:</label>
                     <input type="text" id="days" name="days">
@@ -47,6 +46,11 @@
                     <input type="text" id="rating" name="rating">
                     <div id="form-btns">
                         <input type="button" id="login-btn" name="login-btn" value="Logga In för att delta">
+                        <select name="choice" id="choice">
+                            <option value="" disabled selected>Välj typ</option>
+                            <option value="remote">På distans</option>
+                            <option value="class">I klassrum</option>
+                        </select>
                     </div>
                 </form>
             </div>

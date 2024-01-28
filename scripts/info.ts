@@ -1,16 +1,13 @@
 import { get, update, del } from "./client.js";
 import { addTextElem } from "./dom.js";
 import { handleForm } from "./data.js";
-import { User, Logged, Course } from "./interfaces.js";
+import { User, Course } from "./interfaces.js";
 
 const initInfo = async (logged: any) => {
     const id = location.search.split('=')[1]
     const course = await get(`courses/` + id)
     const image = document.getElementById('info-img') as HTMLImageElement
     image.src = `../content/images/${course.image}`
-    console.log(course.image);
-    
-
 
     for(let [key, value] of Object.entries(course)) {
         const input = document.getElementById(key) as any //HTMLInputElement | null
@@ -31,11 +28,26 @@ const initInfo = async (logged: any) => {
             button.value = 'Uppdatera'
             updateCourse(id, course)
         }else { 
-            if(checkBook(course, logged)){
-                button.value = 'Du har bokat denna kursen'
+            const checkCourse = checkBook(course, logged)
+            console.log(checkCourse);
+            
+            if(checkCourse !== ""){
+                console.log(checkCourse);
+
+                let newString = ""
+                if(checkCourse === 'remote'){
+                    newString = 'distans'
+                }else {
+                    newString = 'på plats'
+                }
+                
+                button.value = 'Du har bokat denna kursen ' + newString
                 button.style.backgroundColor = 'green'
             }else {
-                bookCourse(id, logged.user.id, course) 
+                const check = document.getElementById('choice') as any
+                check.style.display = 'block'
+                
+                bookCourse(id, check, logged.user.id, course) 
                 button.value = 'Boka'
             }
         }
@@ -60,24 +72,30 @@ const updateCourse = async (id: any, course: Course) => {
     })
 }
 
-const bookCourse = async (id: any, loggId: any, course: Course) => {
+const bookCourse = async (id: any, check: any, loggId: any, course: Course) => {
     document.getElementById('user-btn')?.addEventListener('click', async () => {
         
         const user = await get('users/' + loggId)
 
-        user.courses.push(id)
-        course.book.push(loggId)
+        const userChoice = id + '-' + check.value
+        
+        if(check.value !== ""){
+            console.log(userChoice);
 
-        course.book = checkDubbles(course.book) as string[]
-        user.courses = checkDubbles(user.courses)
+            user.courses.push(userChoice)
+            course.book.push(loggId)
 
-        await update('users/' + loggId, user)
-        await update('logged/1', { 
-            id: "1", 
-            user: user})
-        await update('courses/' + id, course)
+            course.book = checkDubbles(course.book) as string[]
+            user.courses = checkDubbles(user.courses)
 
-        location.href = 'profile.html'
+            await update('users/' + loggId, user)
+            await update('logged/1', { 
+                id: "1", 
+                user: user})
+            await update('courses/' + id, course)
+
+            location.href = 'profile.html'
+        }
     })
 }
 
@@ -88,11 +106,13 @@ const checkDubbles = (array: any) => {
 
 const checkBook = (course: any, logged: any) => {
     console.log(course, logged);
-    let check = false
+    let newId = ["", ""]
     logged.user.courses.forEach( (id: any) => {
-        if(id === course.id){ check = true }
+        newId = id.split('-')
+        
+        // if(newId[0] === course.id){ check = true }
     })
-    return check
+    return newId[1]
 }
 
 const listBooking = async (course: any, logged: any) => {
