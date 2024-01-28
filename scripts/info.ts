@@ -21,34 +21,33 @@ const initInfo = async (logged: any) => {
 
     const type = logged.user === null ? false : logged.user.type
     if(type){
+        
         const button = document.getElementById('login-btn') as HTMLInputElement
         button.id = type + '-btn'
+
+        console.log(type, button.id);
         if(type === 'admin'){
             listBooking(course, logged)
             button.value = 'Uppdatera'
             updateCourse(id, course)
-        }else { 
+        } else { 
             const checkCourse = checkBook(course, logged)
-            console.log(checkCourse);
-            
-            if(checkCourse !== ""){
-                console.log(checkCourse);
+            // console.log('TEST2',checkCourse);
 
-                let newString = ""
-                if(checkCourse === 'remote'){
-                    newString = 'distans'
-                }else {
-                    newString = 'på plats'
-                }
+            if(checkCourse !== ""){
+                console.log('TEST2',checkCourse[1]);
+                let newString = checkCourse[1] === 'remote' ? 'distans' : 'på plats'
                 
-                button.value = 'Du har bokat denna kursen ' + newString
+                button.value = 'Du har bokat på ' + newString
                 button.style.backgroundColor = 'green'
-            }else {
+            }else{
+                console.log('BOKA');
                 const check = document.getElementById('choice') as any
                 check.style.display = 'block'
-                
+
                 bookCourse(id, check, logged.user.id, course) 
                 button.value = 'Boka'
+                
             }
         }
     }else { loginBtn() }
@@ -105,14 +104,14 @@ const checkDubbles = (array: any) => {
 }
 
 const checkBook = (course: any, logged: any) => {
-    console.log(course, logged);
-    let newId = ["", ""]
+    let returnValue = ""
     logged.user.courses.forEach( (id: any) => {
-        newId = id.split('-')
-        
-        // if(newId[0] === course.id){ check = true }
-    })
-    return newId[1]
+        const temp = id.split('-')
+        if(temp[0] === course.id){
+            returnValue = temp
+        }
+    } )
+    return returnValue
 }
 
 const listBooking = async (course: any, logged: any) => {

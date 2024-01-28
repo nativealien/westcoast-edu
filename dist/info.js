@@ -19,6 +19,7 @@ const initInfo = async (logged) => {
     if (type) {
         const button = document.getElementById('login-btn');
         button.id = type + '-btn';
+        console.log(type, button.id);
         if (type === 'admin') {
             listBooking(course, logged);
             button.value = 'Uppdatera';
@@ -26,20 +27,15 @@ const initInfo = async (logged) => {
         }
         else {
             const checkCourse = checkBook(course, logged);
-            console.log(checkCourse);
+            // console.log('TEST2',checkCourse);
             if (checkCourse !== "") {
-                console.log(checkCourse);
-                let newString = "";
-                if (checkCourse === 'remote') {
-                    newString = 'distans';
-                }
-                else {
-                    newString = 'på plats';
-                }
-                button.value = 'Du har bokat denna kursen ' + newString;
+                console.log('TEST2', checkCourse[1]);
+                let newString = checkCourse[1] === 'remote' ? 'distans' : 'på plats';
+                button.value = 'Du har bokat på ' + newString;
                 button.style.backgroundColor = 'green';
             }
             else {
+                console.log('BOKA');
                 const check = document.getElementById('choice');
                 check.style.display = 'block';
                 bookCourse(id, check, logged.user.id, course);
@@ -91,13 +87,14 @@ const checkDubbles = (array) => {
     return [...set];
 };
 const checkBook = (course, logged) => {
-    console.log(course, logged);
-    let newId = ["", ""];
+    let returnValue = "";
     logged.user.courses.forEach((id) => {
-        newId = id.split('-');
-        // if(newId[0] === course.id){ check = true }
+        const temp = id.split('-');
+        if (temp[0] === course.id) {
+            returnValue = temp;
+        }
     });
-    return newId[1];
+    return returnValue;
 };
 const listBooking = async (course, logged) => {
     const users = await get('users');
