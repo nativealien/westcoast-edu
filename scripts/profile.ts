@@ -1,6 +1,6 @@
 import { get, update } from "./client.js";
 import { handleForm } from "./data.js";
-import { addCourseCard, addAdminBtn, addTextElem } from './dom.js'
+import { addCourseCard, addAdminBtn } from './dom.js'
 import { User, Course } from "./interfaces.js";
 
 const initProfile = async (logged: any) => {

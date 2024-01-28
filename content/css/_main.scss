@@ -64,6 +64,11 @@ main{
                 font-family: $font-rubik;
                 color: $pri-font-color;
             }
+            h2{
+                @include respond-to(mobile){
+                    font-size: 2rem;
+                }
+            }
             p {
                 padding:0;
                 margin: 0;
