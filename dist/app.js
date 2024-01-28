@@ -38,5 +38,4 @@ const initApp = async () => {
             break;
     }
 };
-// document.addEventListener('DOMContentLoaded', initApp())
-initApp();
+document?.addEventListener('DOMContentLoaded', initApp);
