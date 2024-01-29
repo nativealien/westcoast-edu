@@ -1,37 +1,37 @@
-import { addLogin } from "./dom.js";
-import { initHome } from "./home.js";
-import { initInfo } from "./info.js";
-import { initCourse } from "./courses.js";
-import { initLogin } from "./login.js";
-import { initProfile } from "./profile.js";
-import { initAddCourse } from "./courseAdd.js";
-import { initSignup } from "./signup.js";
-import { get } from "./client.js";
+import { addLogin } from './dom.js';
+import { initHome } from './home.js';
+import { initInfo } from './info.js';
+import { initCourse } from './courses.js';
+import { initLogin } from './login.js';
+import { initProfile } from './profile.js';
+import { initAddCourse } from './courseAdd.js';
+import { initSignup } from './signup.js';
+import { get } from './client.js';
 const loc = location.pathname.split('/');
 const path = loc[loc.length - 1].split('?')[0];
 const initApp = async () => {
     const logged = await get('logged/1');
     addLogin(logged, path);
     switch (path) {
-        case ('index.html'):
+        case 'index.html':
             initHome();
             break;
-        case ('courses.html'):
+        case 'courses.html':
             initCourse(logged);
             break;
-        case ('course-info.html'):
+        case 'course-info.html':
             initInfo(logged);
             break;
-        case ('course-add.html'):
+        case 'course-add.html':
             initAddCourse();
             break;
-        case ('login.html'):
+        case 'login.html':
             initLogin();
             break;
-        case ('profile.html'):
+        case 'profile.html':
             initProfile(logged);
             break;
-        case ('signup.html'):
+        case 'signup.html':
             initSignup();
             break;
     }

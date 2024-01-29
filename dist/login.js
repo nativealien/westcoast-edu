@@ -1,5 +1,5 @@
-import { get, update } from "./client.js";
-import { handleForm } from "./data.js";
+import { get, update } from './client.js';
+import { handleForm } from './data.js';
 const initLogin = async () => {
     const users = await get('users');
     signupBtn();
@@ -9,16 +9,17 @@ const loginBtn = (users) => {
     const loginForm = document.getElementById('login-form');
     loginForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const formObj = handleForm('login-form', "");
+        const formObj = handleForm('login-form', '');
         const errorDiv = document.getElementById('error-div');
         let check = false;
         if (formObj !== null) {
             users.forEach(async (user) => {
-                if (user.email === formObj.email && user.password === formObj.password) {
+                if (user.email === formObj.email &&
+                    user.password === formObj.password) {
                     check = true;
                     await update('logged/1', {
-                        id: "1",
-                        user: user
+                        id: '1',
+                        user: user,
                     });
                     location.href = 'profile.html';
                 }

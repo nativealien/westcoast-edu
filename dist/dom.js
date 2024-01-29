@@ -10,7 +10,8 @@ const addLogin = (logged, path) => {
     }
     else {
         aTag.textContent = logged.user.email;
-        aTag.href = path === 'index.html' ? './pages/profile.html' : './profile.html';
+        aTag.href =
+            path === 'index.html' ? './pages/profile.html' : './profile.html';
         liTag.appendChild(aTag);
     }
     container.appendChild(liTag);
@@ -67,7 +68,7 @@ const addAdminBtn = (logged) => {
         adminBtn.id = 'add-btn';
         adminBtn.textContent = 'Lägg Till Kurs';
         adminBtn.style.backgroundColor = 'lightgreen';
-        adminBtn.style.marginTop = "20px";
+        adminBtn.style.marginTop = '20px';
         adminBtn.style.fontSize = '2rem';
         adminBtn.addEventListener('click', () => {
             location.href = './course-add.html';

@@ -1,24 +1,26 @@
-import { get, add } from "./client.js"
-import { handleForm } from "./data.js"
-import { User } from "./interfaces.js"
+import { get, add } from './client.js';
+import { handleForm } from './data.js';
+import { User } from './interfaces.js';
 
 const initSignup = async (): Promise<void> => {
-    const users = await get('users')
-    const newId = String(users.length + 1)
+  const users = await get('users');
+  const newId = String(users.length + 1);
 
-    let data: User | null;
-    document.getElementById('signup-btn')?.addEventListener('click', async e => {
-        e.preventDefault();
+  let data: User | null;
+  document
+    .getElementById('signup-btn')
+    ?.addEventListener('click', async (e) => {
+      e.preventDefault();
 
-        data = handleForm('signup-form', newId) as User | null;
-        if( data !== null ){
-            data['type'] = 'user'
-            data['courses'] = []
-            await add('users', data)
+      data = handleForm('signup-form', newId) as User | null;
+      if (data !== null) {
+        data['type'] = 'user';
+        data['courses'] = [];
+        await add('users', data);
 
-            location.href = 'login.html'
-        }
-    } )
-}
+        location.href = 'login.html';
+      }
+    });
+};
 
-export {initSignup}
+export { initSignup };

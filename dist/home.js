@@ -1,5 +1,5 @@
-import { get } from "./client.js";
-import { addCourseCard } from "./dom.js";
+import { get } from './client.js';
+import { addCourseCard } from './dom.js';
 const initHome = async () => {
     const courses = await get('courses');
     courses.forEach((course) => {

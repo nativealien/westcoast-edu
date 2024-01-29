@@ -1,5 +1,5 @@
-import { get, add } from "./client.js";
-import { handleForm } from "./data.js";
+import { get, add } from './client.js';
+import { handleForm } from './data.js';
 const initAddCourse = async () => {
     const courses = await get('courses');
     const newId = String(courses.length + 1);

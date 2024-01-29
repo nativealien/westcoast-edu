@@ -1,6 +1,6 @@
-import { get, update } from "./client.js";
-import { addTextElem } from "./dom.js";
-import { handleForm } from "./data.js";
+import { get, update } from './client.js';
+import { addTextElem } from './dom.js';
+import { handleForm } from './data.js';
 const initInfo = async (logged) => {
     const id = location.search.split('=')[1];
     const course = await get(`courses/` + id);
@@ -28,7 +28,7 @@ const initInfo = async (logged) => {
         else {
             const checkCourse = checkBook(course, logged);
             // console.log('TEST2',checkCourse);
-            if (checkCourse !== "") {
+            if (checkCourse !== '') {
                 console.log('TEST2', checkCourse[1]);
                 let newString = checkCourse[1] === 'remote' ? 'distans' : 'på plats';
                 button.value = 'Du har bokat på ' + newString;
@@ -66,7 +66,7 @@ const bookCourse = async (id, check, loggId, course) => {
     document.getElementById('user-btn')?.addEventListener('click', async () => {
         const user = await get('users/' + loggId);
         const userChoice = id + '-' + check.value;
-        if (check.value !== "") {
+        if (check.value !== '') {
             console.log(userChoice);
             user.courses.push(userChoice);
             course.book.push(loggId);
@@ -74,8 +74,8 @@ const bookCourse = async (id, check, loggId, course) => {
             user.courses = checkDubbles(user.courses);
             await update('users/' + loggId, user);
             await update('logged/1', {
-                id: "1",
-                user: user
+                id: '1',
+                user: user,
             });
             await update('courses/' + id, course);
             location.href = 'profile.html';
@@ -87,7 +87,7 @@ const checkDubbles = (array) => {
     return [...set];
 };
 const checkBook = (course, logged) => {
-    let returnValue = "";
+    let returnValue = '';
     logged.user.courses.forEach((id) => {
         const temp = id.split('-');
         if (temp[0] === course.id) {

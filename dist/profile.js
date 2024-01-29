@@ -1,5 +1,5 @@
-import { get, update } from "./client.js";
-import { handleForm } from "./data.js";
+import { get, update } from './client.js';
+import { handleForm } from './data.js';
 import { addCourseCard, addAdminBtn } from './dom.js';
 const initProfile = async (logged) => {
     const courses = await get('courses');
@@ -24,23 +24,24 @@ const addCourses = async (user, courses) => {
     }
     if (user.courses.length > 0) {
         user.courses.forEach((id) => {
-            const newId = id.split("-");
-            const course = courses.find(course => course.id === newId[0]);
+            const newId = id.split('-');
+            const course = courses.find((course) => course.id === newId[0]);
             addCourseCard(course);
         });
     }
-    ;
 };
 const updateUser = async (user) => {
-    document.getElementById('update-btn')?.addEventListener('click', async (e) => {
+    document
+        .getElementById('update-btn')
+        ?.addEventListener('click', async (e) => {
         e.preventDefault();
         const data = handleForm('profile-form', user.id);
         data['type'] = user.type;
         data['courses'] = user.courses;
         await update(`users/${user.id}`, data);
         await update('logged/1', {
-            id: "1",
-            user: data
+            id: '1',
+            user: data,
         });
     });
 };
@@ -48,8 +49,8 @@ const loggOut = async () => {
     document.getElementById('logg-btn')?.addEventListener('click', async (e) => {
         e.preventDefault();
         await update('logged/1', {
-            id: "1",
-            user: null
+            id: '1',
+            user: null,
         });
         location.href = '../index.html';
     });
