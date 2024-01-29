@@ -29,9 +29,11 @@ When booking a course, the user/customer must log in or create an account. The f
 - Number of days the course lasts
 - Cost of the course
 
-> Solution: The option to add acourse is presented on the 'admin' profile page where the button 'Lägg till kurs' will appear.
+> Solution: The option to add a course is presented on the 'admin' profile page where the button 'Lägg till kurs' will appear.
 
 Additionally, we need the ability to list which customers have booked each course."
+
+> If the user is 'admin' there will be a list on every course info page with enrolled students.
 
 ## Data
 
@@ -42,3 +44,6 @@ Additionally, we need the ability to list which customers have booked each cours
 > Users
 
 4 users
+
+> admin@gmail.com is the admin account, and 4 users user1@gmail.com, user2@gmail.com, user3@gmail.com and user4@gmail.com
+> All users has password: 123

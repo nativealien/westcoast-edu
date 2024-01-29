@@ -16,7 +16,6 @@ const addLogin = (logged, path) => {
     container.appendChild(liTag);
 };
 const addCourseCard = (course) => {
-    // const container = document.getElementById('main-container')
     const locArr = location.pathname.split('/');
     const loc = locArr[locArr.length - 1];
     const cardHome = div('div');
@@ -63,7 +62,6 @@ const addCourseCard = (course) => {
 };
 const addAdminBtn = (logged) => {
     if (logged.user.type === 'admin') {
-        // const container = document.getElementById('main-container');
         const adminBtn = document.createElement('button');
         adminBtn.type = 'submit';
         adminBtn.id = 'add-btn';

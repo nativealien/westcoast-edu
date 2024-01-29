@@ -9,8 +9,6 @@ import { initSignup } from "./signup.js";
 import { get } from "./client.js";
 const loc = location.pathname.split('/');
 const path = loc[loc.length - 1].split('?')[0];
-// const path = loc[loc.length-1]
-console.log(path);
 const initApp = async () => {
     const logged = await get('logged/1');
     addLogin(logged, path);

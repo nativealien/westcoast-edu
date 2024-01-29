@@ -5,7 +5,6 @@ import { User, Course } from "./interfaces.js";
 
 const initProfile = async (logged: any) => {
 
-    // const user = await get(`users/${logged.user.id}`)
     const courses: Course[] = await get('courses')
     
     for(let [key, value] of Object.entries(logged.user)) {
@@ -29,12 +28,9 @@ const addCourses = async (user: User, courses: Course[]) => {
         container.textContent = 'Admin kontroll:'
     }
     if(user.courses.length > 0){
-        // addTextElem('Dina bokade kurser:', 'h2')
         user.courses.forEach( (id: string) => {
 
             const newId = id.split("-")
-            console.log(newId);
-            
 
             const course = courses.find( course => course.id === newId[0])
             addCourseCard(course)

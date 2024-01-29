@@ -20,7 +20,6 @@ const addLogin = (logged: any, path: string) => {
 }
 
 const addCourseCard = (course: any) => {
-    // const container = document.getElementById('main-container')
 
     const locArr = location.pathname.split('/')
     const loc = locArr[locArr.length - 1]
@@ -84,8 +83,6 @@ const addCourseCard = (course: any) => {
 const addAdminBtn = (logged: any) => {
     
     if(logged.user.type === 'admin'){
-        // const container = document.getElementById('main-container');
-
         const adminBtn = document.createElement('button');
         adminBtn.type = 'submit'
         adminBtn.id = 'add-btn'
@@ -107,7 +104,6 @@ const addTextElem = (text: string, elem: string) => {
     textDiv.textContent = text
     return textDiv
 }
-
 
 const div = (elem: string) => { 
     const div = document.createElement(elem)

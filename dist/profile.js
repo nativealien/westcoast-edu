@@ -2,7 +2,6 @@ import { get, update } from "./client.js";
 import { handleForm } from "./data.js";
 import { addCourseCard, addAdminBtn } from './dom.js';
 const initProfile = async (logged) => {
-    // const user = await get(`users/${logged.user.id}`)
     const courses = await get('courses');
     for (let [key, value] of Object.entries(logged.user)) {
         const input = document.getElementById(key);
@@ -24,10 +23,8 @@ const addCourses = async (user, courses) => {
         container.textContent = 'Admin kontroll:';
     }
     if (user.courses.length > 0) {
-        // addTextElem('Dina bokade kurser:', 'h2')
         user.courses.forEach((id) => {
             const newId = id.split("-");
-            console.log(newId);
             const course = courses.find(course => course.id === newId[0]);
             addCourseCard(course);
         });
