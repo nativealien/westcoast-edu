@@ -158,17 +158,6 @@
       "book": [
         "3"
       ]
-    },
-    {
-      "id": "13",
-      "course": "Lu",
-      "days": "23",
-      "start": "02-29-2024",
-      "description": "Rolig kurs",
-      "cost": "20000",
-      "image": "temp.jpg",
-      "rating": "13",
-      "book": []
     }
   ],
   "users": [
