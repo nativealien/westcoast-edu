@@ -11,11 +11,13 @@ const initAddCourse = async () => {
     e.preventDefault();
 
     const data = handleForm('info-form', newId);
-    data['image'] = 'temp.jpg';
-    data['rating'] = newId;
-    data['book'] = [];
+    if(data !== null){
+      data['image'] = 'temp.jpg';
+      data['rating'] = newId;
+      data['book'] = [];
 
-    await add('courses', data);
+      await add('courses', data);
+    }
   });
 };
 

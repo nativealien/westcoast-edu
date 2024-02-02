@@ -32,6 +32,11 @@ main{
 
         background-color: $card-color;
 
+        #error-div{
+            font-family: $font-rubik;
+            font-size: 1.5rem;
+        }
+
         @include respond-to(tablet){
             width: 100%;
         }

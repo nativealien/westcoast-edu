@@ -7,10 +7,12 @@ const initAddCourse = async () => {
     addBtn?.addEventListener('click', async (e) => {
         e.preventDefault();
         const data = handleForm('info-form', newId);
-        data['image'] = 'temp.jpg';
-        data['rating'] = newId;
-        data['book'] = [];
-        await add('courses', data);
+        if (data !== null) {
+            data['image'] = 'temp.jpg';
+            data['rating'] = newId;
+            data['book'] = [];
+            await add('courses', data);
+        }
     });
 };
 export { initAddCourse };
