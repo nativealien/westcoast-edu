@@ -2,7 +2,7 @@ import { Course, Logged } from "./interfaces.js";
 
 const container = document.getElementById('main-container') as HTMLElement;
 
-const addLogin = (logged: any, path: string) => {
+const addLogin = (logged: Logged, path: string) => {
   const container = document.getElementById('nav-container') as HTMLElement;
 
   const aTag = div('a') as HTMLAnchorElement;
@@ -96,15 +96,15 @@ const addAdminBtn = (logged: Logged ) => {
   }
 };
 
-const addTextElem = (text: string, elem: string) => {
-  const textDiv = document.createElement(elem);
-  textDiv.textContent = text;
-  return textDiv;
-};
+// const addTextElem = (text: string, elem: string) => {
+//   const textDiv = document.createElement(elem);
+//   textDiv.textContent = text;
+//   return textDiv;
+// };
 
 const div = (elem: string) => {
   const div = document.createElement(elem);
   return div;
 };
 
-export { addLogin, addCourseCard, addAdminBtn, addTextElem, div };
+export { addLogin, addCourseCard, addAdminBtn, div };

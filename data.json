@@ -263,23 +263,17 @@
     {
       "id": "1",
       "user": {
-        "id": "2",
-        "name": "Hanna",
-        "lastname": "Jacobsen",
-        "street": "lavägen 1",
-        "city": "Landskrona",
-        "zip": "45578",
-        "phone": "0733444444",
-        "email": "user1@gmail.com",
+        "id": "1",
+        "name": "Fredrik",
+        "lastname": "Svensson",
+        "street": "Krogvägen 41",
+        "city": "Lund",
+        "zip": "37782",
+        "phone": "0733772277",
+        "email": "admin@gmail.com",
         "password": "123",
-        "type": "user",
-        "courses": [
-          "1-remote",
-          "2-class",
-          "11-remote",
-          "10-class",
-          "5-class"
-        ]
+        "type": "admin",
+        "courses": []
       }
     }
   ]

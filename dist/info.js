@@ -1,5 +1,4 @@
 import { get, update } from './client.js';
-import { addTextElem } from './dom.js';
 import { handleForm } from './data.js';
 const initInfo = async (logged) => {
     const id = location.search.split('=')[1];
@@ -7,8 +6,8 @@ const initInfo = async (logged) => {
     const image = document.getElementById('info-img');
     image.src = `../content/images/${course.image}`;
     for (let [key, value] of Object.entries(course)) {
-        const input = document.getElementById(key); //HTMLInputElement | null
-        if (input) {
+        const input = document.getElementById(key);
+        if (input !== null) {
             input.value = value;
             if (logged.user === null || logged.user.type !== 'admin') {
                 input.readOnly = true;
@@ -99,19 +98,13 @@ const checkBook = (course, logged) => {
 };
 const listBooking = async (course, logged) => {
     const users = await get('users');
-    if (logged.user !== null && logged.user.type === 'user') {
-        logged.user.courses.forEach((id) => {
-            if (id === course.id) {
-                addTextElem('Du har bokat denna kursen!', 'h2');
-            }
-        });
-    }
-    else if (logged.user !== null && logged.user.type === 'admin') {
+    if (logged.user !== null && logged.user.type === 'admin') {
         const container = document.getElementById('info-container');
         const bookDiv = document.createElement('div');
         course.book.forEach((id) => {
-            const textElem = addTextElem(`${users[id - 1].name} har bokat kursen`, 'h3');
-            bookDiv.appendChild(textElem);
+            const textDiv = document.createElement('h3');
+            textDiv.textContent = `${users[id - 1].name} har bokat kursen`;
+            bookDiv.appendChild(textDiv);
         });
         container?.appendChild(bookDiv);
     }

@@ -88,10 +88,16 @@ main{
         grid-template-columns: 1fr 1fr;
         gap: 10px;
 
+        #add-btn{
+            background-color: cornflowerblue;
+            font-family: $font-rubik;
+            font-size: 1.5rem;
+        }
+
         @include respond-to('tablet'){
             grid-template-columns: 1fr;
         }
-        
+
 
         #home-card{
             display: flex;

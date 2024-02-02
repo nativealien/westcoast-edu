@@ -73,13 +73,13 @@ const addAdminBtn = (logged) => {
         container.appendChild(adminBtn);
     }
 };
-const addTextElem = (text, elem) => {
-    const textDiv = document.createElement(elem);
-    textDiv.textContent = text;
-    return textDiv;
-};
+// const addTextElem = (text: string, elem: string) => {
+//   const textDiv = document.createElement(elem);
+//   textDiv.textContent = text;
+//   return textDiv;
+// };
 const div = (elem) => {
     const div = document.createElement(elem);
     return div;
 };
-export { addLogin, addCourseCard, addAdminBtn, addTextElem, div };
+export { addLogin, addCourseCard, addAdminBtn, div };

@@ -1,5 +1,4 @@
-import { get, update, del } from './client.js';
-import { addTextElem } from './dom.js';
+import { get, update } from './client.js';
 import { handleForm } from './data.js';
 import { User, Course, Logged } from './interfaces.js';
 
@@ -10,8 +9,8 @@ const initInfo = async (logged: Logged) => {
   image.src = `../content/images/${course.image}`;
 
   for (let [key, value] of Object.entries(course)) {
-    const input = document.getElementById(key) as any; //HTMLInputElement | null
-    if (input) {
+    const input = document.getElementById(key) as any
+    if (input !== null) {
       input.value = value;
       if (logged.user === null || logged.user.type !== 'admin') {
         input.readOnly = true;
@@ -38,7 +37,7 @@ const initInfo = async (logged: Logged) => {
 
         button.value = 'Du har bokat på ' + newString;
         button.style.backgroundColor = 'green';
-      } else if(logged.user !== null) {
+      } else if (logged.user !== null) {
         console.log('BOKA');
         const check = document.getElementById('choice') as any;
         check.style.display = 'block';
@@ -71,8 +70,8 @@ const updateCourse = async (id: any, course: Course) => {
 
 const bookCourse = async (id: any, check: any, loggId: any, course: Course) => {
   document.getElementById('user-btn')?.addEventListener('click', async () => {
-    const user = await get('users/' + loggId);
 
+    const user = await get('users/' + loggId);
     const userChoice = id + '-' + check.value;
 
     if (check.value !== '') {
@@ -103,7 +102,7 @@ const checkDubbles = (array: string[]) => {
 
 const checkBook = (course: Course, logged: Logged) => {
   let returnValue = '';
-  if(logged.user !== null){
+  if (logged.user !== null) {
     logged.user.courses.forEach((id: any) => {
       const temp = id.split('-');
       if (temp[0] === course.id) {
@@ -111,28 +110,20 @@ const checkBook = (course: Course, logged: Logged) => {
       }
     });
   }
- 
+
   return returnValue;
 };
 
 const listBooking = async (course: Course, logged: Logged) => {
   const users: User[] = await get('users');
 
-  if (logged.user !== null && logged.user.type === 'user') {
-    logged.user.courses.forEach((id: any) => {
-      if (id === course.id) {
-        addTextElem('Du har bokat denna kursen!', 'h2');
-      }
-    });
-  } else if (logged.user !== null && logged.user.type === 'admin') {
+  if (logged.user !== null && logged.user.type === 'admin') {
     const container = document.getElementById('info-container');
     const bookDiv = document.createElement('div');
     course.book.forEach((id: any) => {
-      const textElem: HTMLElement = addTextElem(
-        `${users[id - 1].name} har bokat kursen`,
-        'h3'
-      );
-      bookDiv.appendChild(textElem);
+      const textDiv = document.createElement('h3');
+      textDiv.textContent = `${users[id - 1].name} har bokat kursen`;
+      bookDiv.appendChild(textDiv);
     });
     container?.appendChild(bookDiv);
   }
