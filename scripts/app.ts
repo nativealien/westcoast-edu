@@ -7,12 +7,13 @@ import { initProfile } from './profile.js';
 import { initAddCourse } from './courseAdd.js';
 import { initSignup } from './signup.js';
 import { get } from './client.js';
+import { Logged } from './interfaces.js';
 
 const loc = location.pathname.split('/');
 const path = loc[loc.length - 1].split('?')[0];
 
 const initApp = async () => {
-  const logged = await get('logged/1');
+  const logged: Logged = await get('logged/1');
   addLogin(logged, path);
 
   switch (path) {
@@ -20,7 +21,7 @@ const initApp = async () => {
       initHome();
       break;
     case 'courses.html':
-      initCourse(logged);
+      initCourse();
       break;
     case 'course-info.html':
       initInfo(logged);

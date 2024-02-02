@@ -62,14 +62,11 @@ const addCourseCard = (course) => {
     container.appendChild(cardHome);
 };
 const addAdminBtn = (logged) => {
-    if (logged.user.type === 'admin') {
+    if (logged.user !== null && logged.user.type === 'admin') {
         const adminBtn = document.createElement('button');
         adminBtn.type = 'submit';
         adminBtn.id = 'add-btn';
         adminBtn.textContent = 'Lägg Till Kurs';
-        adminBtn.style.backgroundColor = 'lightgreen';
-        adminBtn.style.marginTop = '20px';
-        adminBtn.style.fontSize = '2rem';
         adminBtn.addEventListener('click', () => {
             location.href = './course-add.html';
         });

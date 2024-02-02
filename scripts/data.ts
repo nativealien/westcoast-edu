@@ -1,8 +1,7 @@
-import { div } from './dom.js';
 
 const handleForm = (formId: string, objId: string) => {
-  const form = document.getElementById(formId) as any;
-  const formData = new FormData(form);
+  const form = document.getElementById(formId) as HTMLFormElement;
+  const formData: FormData = new FormData(form);
 
   const newObj: any = {};
 
@@ -10,8 +9,8 @@ const handleForm = (formId: string, objId: string) => {
     newObj['id'] = objId;
   }
 
-  let check = true;
-  let error = 'Du måste fylla i : ';
+  let check: boolean = true;
+  let error: string = 'Du måste fylla i : ';
   for (const [key, value] of formData.entries()) {
     if (value === '') {
       error = error + `${key} `;

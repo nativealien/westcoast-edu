@@ -1,10 +1,12 @@
+import { Course, Logged } from "./interfaces.js";
+
 const container = document.getElementById('main-container') as HTMLElement;
 
 const addLogin = (logged: any, path: string) => {
   const container = document.getElementById('nav-container') as HTMLElement;
 
-  const aTag: any = div('a');
-  const liTag = div('li');
+  const aTag = div('a') as HTMLAnchorElement;
+  const liTag = div('li') as HTMLLIElement;
 
   if (logged.user === null) {
     aTag.textContent = 'Logga In';
@@ -19,15 +21,15 @@ const addLogin = (logged: any, path: string) => {
   container.appendChild(liTag);
 };
 
-const addCourseCard = (course: any) => {
+const addCourseCard = (course: Course) => {
   const locArr = location.pathname.split('/');
   const loc = locArr[locArr.length - 1];
 
-  const cardHome = div('div');
+  const cardHome = div('div') as HTMLDivElement;
   cardHome.id = 'home-card';
 
-  const cardImg: any = div('img');
-  const cardA: any = div('a');
+  const cardImg = div('img') as HTMLImageElement;
+  const cardA = div('a') as HTMLAnchorElement;
   if (loc === 'index.html') {
     cardA.href = './pages/course-info.html?id=' + course.id;
     cardImg.src = './content/images/' + course.image;
@@ -37,16 +39,16 @@ const addCourseCard = (course: any) => {
   }
 
   // Left Div of course card
-  const cardLeft = div('div');
+  const cardLeft = div('div') as HTMLDivElement;
   cardLeft.id = 'left-card';
 
-  const cardH2 = div('h2');
+  const cardH2 = div('h2') as HTMLHeadElement;
   cardH2.textContent = course.course;
 
-  const cardRate = div('h3');
+  const cardRate = div('h3') as HTMLHeadElement;
   cardRate.textContent = `Rating: ${course.rating}`;
 
-  const cardDesc = div('p');
+  const cardDesc = div('p') as HTMLParagraphElement;
   cardDesc.textContent = course.description;
 
   cardLeft.appendChild(cardH2);
@@ -79,15 +81,12 @@ const addCourseCard = (course: any) => {
   container.appendChild(cardHome);
 };
 
-const addAdminBtn = (logged: any) => {
-  if (logged.user.type === 'admin') {
-    const adminBtn = document.createElement('button');
+const addAdminBtn = (logged: Logged ) => {
+  if (logged.user !== null && logged.user.type === 'admin') {
+    const adminBtn = document.createElement('button') as HTMLButtonElement;
     adminBtn.type = 'submit';
     adminBtn.id = 'add-btn';
     adminBtn.textContent = 'Lägg Till Kurs';
-    adminBtn.style.backgroundColor = 'lightgreen';
-    adminBtn.style.marginTop = '20px';
-    adminBtn.style.fontSize = '2rem';
 
     adminBtn.addEventListener('click', () => {
       location.href = './course-add.html';

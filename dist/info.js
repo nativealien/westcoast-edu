@@ -27,14 +27,13 @@ const initInfo = async (logged) => {
         }
         else {
             const checkCourse = checkBook(course, logged);
-            // console.log('TEST2',checkCourse);
             if (checkCourse !== '') {
                 console.log('TEST2', checkCourse[1]);
                 let newString = checkCourse[1] === 'remote' ? 'distans' : 'på plats';
                 button.value = 'Du har bokat på ' + newString;
                 button.style.backgroundColor = 'green';
             }
-            else {
+            else if (logged.user !== null) {
                 console.log('BOKA');
                 const check = document.getElementById('choice');
                 check.style.display = 'block';
@@ -88,24 +87,26 @@ const checkDubbles = (array) => {
 };
 const checkBook = (course, logged) => {
     let returnValue = '';
-    logged.user.courses.forEach((id) => {
-        const temp = id.split('-');
-        if (temp[0] === course.id) {
-            returnValue = temp;
-        }
-    });
+    if (logged.user !== null) {
+        logged.user.courses.forEach((id) => {
+            const temp = id.split('-');
+            if (temp[0] === course.id) {
+                returnValue = temp;
+            }
+        });
+    }
     return returnValue;
 };
 const listBooking = async (course, logged) => {
     const users = await get('users');
-    if (logged.user.type === 'user') {
+    if (logged.user !== null && logged.user.type === 'user') {
         logged.user.courses.forEach((id) => {
             if (id === course.id) {
                 addTextElem('Du har bokat denna kursen!', 'h2');
             }
         });
     }
-    else if (logged.user.type === 'admin') {
+    else if (logged.user !== null && logged.user.type === 'admin') {
         const container = document.getElementById('info-container');
         const bookDiv = document.createElement('div');
         course.book.forEach((id) => {

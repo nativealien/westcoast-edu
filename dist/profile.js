@@ -3,16 +3,18 @@ import { handleForm } from './data.js';
 import { addCourseCard, addAdminBtn } from './dom.js';
 const initProfile = async (logged) => {
     const courses = await get('courses');
-    for (let [key, value] of Object.entries(logged.user)) {
-        const input = document.getElementById(key);
-        if (input && typeof value === 'string') {
-            input.value = value;
+    if (logged.user !== null) {
+        for (let [key, value] of Object.entries(logged.user)) {
+            const input = document.getElementById(key);
+            if (input && typeof value === 'string') {
+                input.value = value;
+            }
         }
+        updateUser(logged.user);
+        addAdminBtn(logged);
+        addCourses(logged.user, courses);
+        loggOut();
     }
-    updateUser(logged.user);
-    addAdminBtn(logged);
-    addCourses(logged.user, courses);
-    loggOut();
 };
 const addCourses = async (user, courses) => {
     const container = document.getElementById('info-text');
@@ -26,7 +28,9 @@ const addCourses = async (user, courses) => {
         user.courses.forEach((id) => {
             const newId = id.split('-');
             const course = courses.find((course) => course.id === newId[0]);
-            addCourseCard(course);
+            if (course !== undefined) {
+                addCourseCard(course);
+            }
         });
     }
 };

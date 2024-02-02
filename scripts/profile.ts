@@ -1,21 +1,22 @@
 import { get, update } from './client.js';
 import { handleForm } from './data.js';
 import { addCourseCard, addAdminBtn } from './dom.js';
-import { User, Course } from './interfaces.js';
+import { User, Course, Logged } from './interfaces.js';
 
-const initProfile = async (logged: any) => {
+const initProfile = async (logged: Logged ) => {
   const courses: Course[] = await get('courses');
-
-  for (let [key, value] of Object.entries(logged.user)) {
-    const input = document.getElementById(key) as HTMLInputElement | null;
-    if (input && typeof value === 'string') {
-      input.value = value;
+  if(logged.user !== null){
+    for (let [key, value] of Object.entries(logged.user)) {
+      const input = document.getElementById(key) as HTMLInputElement | null;
+      if (input && typeof value === 'string') {
+        input.value = value;
+      }
     }
+    updateUser(logged.user);
+    addAdminBtn(logged);
+    addCourses(logged.user, courses);
+    loggOut();
   }
-  updateUser(logged.user);
-  addAdminBtn(logged);
-  addCourses(logged.user, courses);
-  loggOut();
 };
 
 const addCourses = async (user: User, courses: Course[]) => {
@@ -29,8 +30,10 @@ const addCourses = async (user: User, courses: Course[]) => {
     user.courses.forEach((id: string) => {
       const newId = id.split('-');
 
-      const course = courses.find((course) => course.id === newId[0]);
-      addCourseCard(course);
+      const course = courses.find((course: Course) => course.id === newId[0]);
+      if(course !== undefined){
+        addCourseCard(course);
+      }
     });
   }
 };
@@ -55,7 +58,6 @@ const updateUser = async (user: User) => {
 const loggOut = async () => {
   document.getElementById('logg-btn')?.addEventListener('click', async (e) => {
     e.preventDefault();
-
     await update('logged/1', {
       id: '1',
       user: null,

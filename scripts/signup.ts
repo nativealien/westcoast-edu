@@ -2,8 +2,8 @@ import { get, add } from './client.js';
 import { handleForm } from './data.js';
 import { User } from './interfaces.js';
 
-const initSignup = async (): Promise<void> => {
-  const users = await get('users');
+const initSignup = async () => {
+  const users = await get('users') as User[];
   const newId = String(users.length + 1);
 
   let data: User | null;

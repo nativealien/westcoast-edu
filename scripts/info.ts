@@ -1,9 +1,9 @@
 import { get, update, del } from './client.js';
 import { addTextElem } from './dom.js';
 import { handleForm } from './data.js';
-import { User, Course } from './interfaces.js';
+import { User, Course, Logged } from './interfaces.js';
 
-const initInfo = async (logged: any) => {
+const initInfo = async (logged: Logged) => {
   const id = location.search.split('=')[1];
   const course = await get(`courses/` + id);
   const image = document.getElementById('info-img') as HTMLImageElement;
@@ -31,7 +31,6 @@ const initInfo = async (logged: any) => {
       updateCourse(id, course);
     } else {
       const checkCourse = checkBook(course, logged);
-      // console.log('TEST2',checkCourse);
 
       if (checkCourse !== '') {
         console.log('TEST2', checkCourse[1]);
@@ -39,7 +38,7 @@ const initInfo = async (logged: any) => {
 
         button.value = 'Du har bokat på ' + newString;
         button.style.backgroundColor = 'green';
-      } else {
+      } else if(logged.user !== null) {
         console.log('BOKA');
         const check = document.getElementById('choice') as any;
         check.style.display = 'block';
@@ -61,7 +60,7 @@ const loginBtn = () => {
 
 const updateCourse = async (id: any, course: Course) => {
   document.getElementById('admin-btn')?.addEventListener('click', async () => {
-    const data = handleForm('info-form', id) as any;
+    const data = handleForm('info-form', id) as Course;
     data['image'] = course.image;
     data['rating'] = course.rating;
     data['book'] = course.book;
@@ -83,7 +82,7 @@ const bookCourse = async (id: any, check: any, loggId: any, course: Course) => {
       course.book.push(loggId);
 
       course.book = checkDubbles(course.book) as string[];
-      user.courses = checkDubbles(user.courses);
+      user.courses = checkDubbles(user.courses) as string[];
 
       await update('users/' + loggId, user);
       await update('logged/1', {
@@ -97,32 +96,35 @@ const bookCourse = async (id: any, check: any, loggId: any, course: Course) => {
   });
 };
 
-const checkDubbles = (array: any) => {
+const checkDubbles = (array: string[]) => {
   const set = new Set(array);
   return [...set];
 };
 
-const checkBook = (course: any, logged: any) => {
+const checkBook = (course: Course, logged: Logged) => {
   let returnValue = '';
-  logged.user.courses.forEach((id: any) => {
-    const temp = id.split('-');
-    if (temp[0] === course.id) {
-      returnValue = temp;
-    }
-  });
+  if(logged.user !== null){
+    logged.user.courses.forEach((id: any) => {
+      const temp = id.split('-');
+      if (temp[0] === course.id) {
+        returnValue = temp;
+      }
+    });
+  }
+ 
   return returnValue;
 };
 
-const listBooking = async (course: any, logged: any) => {
+const listBooking = async (course: Course, logged: Logged) => {
   const users: User[] = await get('users');
 
-  if (logged.user.type === 'user') {
+  if (logged.user !== null && logged.user.type === 'user') {
     logged.user.courses.forEach((id: any) => {
       if (id === course.id) {
         addTextElem('Du har bokat denna kursen!', 'h2');
       }
     });
-  } else if (logged.user.type === 'admin') {
+  } else if (logged.user !== null && logged.user.type === 'admin') {
     const container = document.getElementById('info-container');
     const bookDiv = document.createElement('div');
     course.book.forEach((id: any) => {

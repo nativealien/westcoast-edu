@@ -262,7 +262,25 @@
   "logged": [
     {
       "id": "1",
-      "user": null
+      "user": {
+        "id": "2",
+        "name": "Hanna",
+        "lastname": "Jacobsen",
+        "street": "lavägen 1",
+        "city": "Landskrona",
+        "zip": "45578",
+        "phone": "0733444444",
+        "email": "user1@gmail.com",
+        "password": "123",
+        "type": "user",
+        "courses": [
+          "1-remote",
+          "2-class",
+          "11-remote",
+          "10-class",
+          "5-class"
+        ]
+      }
     }
   ]
 }

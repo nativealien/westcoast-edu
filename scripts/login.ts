@@ -9,7 +9,7 @@ const initLogin = async () => {
   loginBtn(users);
 };
 
-const loginBtn = (users: any) => {
+const loginBtn = (users: User[]) => {
   const loginForm = document.getElementById('login-form');
   loginForm?.addEventListener('submit', async (e) => {
     e.preventDefault();

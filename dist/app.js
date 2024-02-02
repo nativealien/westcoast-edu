@@ -17,7 +17,7 @@ const initApp = async () => {
             initHome();
             break;
         case 'courses.html':
-            initCourse(logged);
+            initCourse();
             break;
         case 'course-info.html':
             initInfo(logged);
